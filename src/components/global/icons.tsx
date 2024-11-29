@@ -1,6 +1,7 @@
 import { LucideProps } from "lucide-react";
 import Image from "next/image";
-import Logo from "../../../public/assets/DIGITALIA.png";
+import Logo from "@/public/assets/DIGITALIA.png";
+import LogoBlanc from "@/public/assets/DIGITALIA-BLANC.png";
 
 type IconType = {
   [key: string]: (props: LucideProps) => JSX.Element;
@@ -19,7 +20,12 @@ const Icons: IconType = {
     //         </linearGradient>
     //     </defs>
     // </svg>
-    <Image src={Logo} width={150} height={100} alt="Picture of the author" />
+    <Image
+      src={LogoBlanc}
+      width={170}
+      height={170}
+      alt="Picture of the author"
+    />
   ),
   astra: (props: LucideProps) => (
     <svg

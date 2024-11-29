@@ -29,7 +29,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/components/global/cobeglobe.jsx"
+    "src/components/global/cobeglobe.jsx",
+    "src/components/ui/globe.jsx"
   ],
   "exclude": ["node_modules"]
 }

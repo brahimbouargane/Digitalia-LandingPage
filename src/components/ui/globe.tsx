@@ -5,6 +5,8 @@ import ThreeGlobe from "three-globe";
 import { useThree, Object3DNode, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import countries from "@/data/globe.json";
+import { Feature, FeatureCollection } from "geojson";
+
 declare module "@react-three/fiber" {
   interface ThreeElements {
     threeGlobe: Object3DNode<ThreeGlobe, typeof ThreeGlobe>;
@@ -151,7 +153,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
   useEffect(() => {
     if (globeRef.current && globeData) {
       globeRef.current
-        .hexPolygonsData(countries.features)
+        .hexPolygonsData((countries as FeatureCollection).features)
         .hexPolygonResolution(3)
         .hexPolygonMargin(0.7)
         .showAtmosphere(defaultProps.showAtmosphere)
