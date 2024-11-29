@@ -21,7 +21,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 
 const World = dynamic(
-  () => import("../../components/ui/globe").then((m) => m.World),
+  () => import("@/src/components/ui/globe").then((mod) => mod.World),
   {
     ssr: false,
   }
