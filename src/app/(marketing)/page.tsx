@@ -24,6 +24,7 @@ const World = dynamic(
   () => import("@/src/components/ui/globe").then((mod) => mod.World),
   {
     ssr: false,
+    loading: () => <div className="h-[600px]"></div>,
   }
 );
 

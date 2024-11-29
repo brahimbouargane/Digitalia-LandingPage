@@ -17,9 +17,6 @@
         "name": "next"
       }
     ],
-    // "paths": {
-    //   "@/*": ["./src/*"]
-    // }
     "paths": {
       "@/*": ["./*"]
     }
@@ -32,5 +29,8 @@
     "src/components/global/cobeglobe.jsx",
     "src/components/ui/globe.jsx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "allowImportingTsExtensions": true,
+  "noImplicitAny": false,
+  "types": ["node"]
 }
