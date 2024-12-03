@@ -15,7 +15,7 @@ const Contact = () => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper id="contact">
       <Container className="relative py-10 ">
         <div className="relative w-full overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800 -mt-20 lg:-mt-40">
           <motion.div

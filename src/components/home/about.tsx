@@ -8,7 +8,10 @@ import { CardSpotlight } from "../ui/card-spotlight";
 
 const About = () => {
   return (
-    <Wrapper className="flex flex-col items-center justify-center !py-0 md:!py-0 relative">
+    <Wrapper
+      id="about"
+      className="flex flex-col items-center justify-center !py-0 md:!py-0 relative"
+    >
       <Container>
         <div className="max-w-md mx-auto text-start md:text-center">
           <SectionBadge title="About Us" />

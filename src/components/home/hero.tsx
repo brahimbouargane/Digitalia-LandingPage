@@ -124,7 +124,7 @@ const Hero = () => {
   ];
 
   return (
-    <Wrapper>
+    <Wrapper id="home">
       {/* Enhanced Grid Background with Parallax */}
       <motion.div
         style={{ y: backgroundY }}
@@ -199,45 +199,6 @@ const Hero = () => {
                 and elevate brands in the digital landscape.
               </motion.p>
             </motion.div>
-
-            {/* Enhanced Technology Showcase */}
-            {/* <Wrapper className="mt-16">
-              <Container>
-                <div className="w-full">
-                  <h2 className="text-center text-sm text-neutral-400 ">
-                    Our Partners
-                  </h2>
-                  <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden py-5">
-                    <Marquee
-                      pauseOnHover
-                      className="[--duration:20s] select-none"
-                      aria-label="Technology showcase"
-                    >
-                      {firstRow.map((tech) => {
-                        const Icon = tech.icon;
-                        return (
-                          <figure
-                            key={tech.name}
-                            className="w-20 h-20 relative rounded-2xl flex-shrink-0 p-4 flex items-center justify-center group transition-all duration-300"
-                          >
-                            <Icon
-                              size={32}
-                              className="text-slate-400 transition-colors duration-300 hover:text-[var(--icon-color)]"
-                              style={{ "--icon-color": tech.color }}
-                              aria-label={tech.name}
-                            />
-                            <span className="sr-only">{tech.name}</span>
-                          </figure>
-                        );
-                      })}
-                    </Marquee>
-
-                    <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background" />
-                    <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-background" />
-                  </div>
-                </div>
-              </Container>
-            </Wrapper> */}
           </div>
         </div>
       </Container>

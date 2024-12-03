@@ -4,15 +4,17 @@ import { cn } from "@/src/lib/utils";
 interface Props {
   className?: string;
   children: React.ReactNode;
+  id?: string;
 }
 
-const Wrapper = ({ children, className }: Props) => {
+const Wrapper = ({ children, className, id }: Props) => {
   return (
     <div
       className={cn(
         "h-full mx-auto w-full max-w-screen-xl px-4 md:px-20",
         className
       )}
+      id={id}
     >
       {children}
     </div>

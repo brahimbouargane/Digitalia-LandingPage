@@ -17,9 +17,9 @@ const Navbar = () => {
 
   const menuItems = useMemo(
     () => [
-      { label: "About", href: "#" },
-      { label: "Services", href: "#" },
-      { label: "Contact", href: "#" },
+      { label: "About", href: "#about" },
+      { label: "Services", href: "#services" },
+      { label: "Contact", href: "#contact" },
     ],
     []
   );
@@ -32,7 +32,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-full mx-auto md:max-w-screen-xl">
           {/* Logo */}
           <div className="flex items-start">
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="#home" className="flex items-center gap-2">
               {theme === "light" ? (
                 <Icons.logo className="w-50 " />
               ) : (
@@ -79,9 +79,11 @@ const Navbar = () => {
 
           {/* Desktop Right Section */}
           <div className="hidden md:flex items-center gap-4">
-            <button className="inline-flex h-10 animate-shimmer items-center justify-center rounded-full border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-              Contact Us
-            </button>
+            <Link href="#contact">
+              <button className="inline-flex h-10 animate-shimmer items-center justify-center rounded-full border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                Contact Us
+              </button>
+            </Link>
             {/* <ThemeToggle /> */}
           </div>
 
@@ -152,7 +154,7 @@ const Navbar = () => {
                       asChild
                     >
                       <Link
-                        href="#"
+                        href="#contact"
                         onClick={() => {
                           setIsMenuOpen(false);
                           document.body.style.overflow = "unset";

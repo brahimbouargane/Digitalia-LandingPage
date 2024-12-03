@@ -1,24 +1,220 @@
 "use client";
-import { Container, Wrapper } from "@/src/components";
+import { Container, Icons, Wrapper } from "@/src/components";
+import { BorderBeam } from "@/src/components/ui/border-beam";
+import { Button } from "@/src/components/ui/button";
 import Hero from "@/src/components/home/hero";
+
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/src/components/ui/card";
+import { Input } from "@/src/components/ui/input";
 import { LampContainer } from "@/src/components/ui/lamp";
 import Marquee from "@/src/components/ui/marquee";
 import SectionBadge from "@/src/components/ui/section-badge";
-import { technologies } from "@/src/constants";
+import {
+  features,
+  perks,
+  pricingCards,
+  reviews,
+  technologies,
+} from "@/src/constants";
+import { cn } from "@/src/lib/utils";
+import {
+  ArrowRight,
+  ChevronRight,
+  Sparkles,
+  UserIcon,
+  Zap,
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import dynamic from "next/dynamic";
+import { World } from "@/src/components/ui/globe";
+import { BackgroundBeams } from "@/src/components/ui/background-beams";
+import About from "@/src/components/home/about";
+import { useState } from "react";
 import Contact from "@/src/components/home/contact";
 import Services from "@/src/components/home/services";
 
 const HomePage = () => {
   const firstRow = technologies.slice(0, technologies.length / 2);
   const secondRow = technologies.slice(technologies.length / 2);
+  const globeConfig = {
+    pointSize: 10,
+    globeColor: "#062056",
+    showAtmosphere: true,
+    atmosphereColor: "#FFFFFF",
+    atmosphereAltitude: 0.1,
+    emissive: "#062056",
+    emissiveIntensity: 0.1,
+    shininess: 0.9,
+    polygonColor: "rgba(255,255,255,0.7)",
+    ambientLight: "#38bdf8",
+    directionalLeftLight: "#ffffff",
+    directionalTopLight: "#ffffff",
+    pointLight: "#ffffff",
+    arcTime: 1000,
+    arcLength: 0.9,
+    rings: 1,
+    maxRings: 3,
+    initialPosition: { lat: 22.3193, lng: 114.1694 },
+    autoRotate: true,
+    autoRotateSpeed: 0.5,
+  };
+  const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
+
+  const sampleArcs = [
+    {
+      order: 1,
+      startLat: 33.5731,
+      startLng: -7.5898, // Casablanca
+      endLat: 48.8566,
+      endLng: 2.3522, // Paris
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 1,
+      startLat: 33.5731,
+      startLng: -7.5898, // Casablanca
+      endLat: 48.8566,
+      endLng: 2.3522, // Paris
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 1,
+      startLat: 33.5731,
+      startLng: -7.5898, // Casablanca
+      endLat: 48.8566,
+      endLng: 2.3522, // Paris
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 2,
+      startLat: 48.8566,
+      startLng: 2.3522, // Paris
+      endLat: 33.5731,
+      endLng: -7.5898, // Casablanca
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 2,
+      startLat: 48.8566,
+      startLng: 2.3522, // Paris
+      endLat: 33.5731,
+      endLng: -7.5898, // Casablanca
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 2,
+      startLat: 48.8566,
+      startLng: 2.3522, // Paris
+      endLat: 33.5731,
+      endLng: -7.5898, // Casablanca
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 3,
+      startLat: 33.5731,
+      startLng: -7.5898, // Casablanca
+      endLat: 41.3851,
+      endLng: 2.1734, // Barcelona
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 3,
+      startLat: 33.5731,
+      startLng: -7.5898, // Casablanca
+      endLat: 41.3851,
+      endLng: 2.1734, // Barcelona
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 3,
+      startLat: 33.5731,
+      startLng: -7.5898, // Casablanca
+      endLat: 41.3851,
+      endLng: 2.1734, // Barcelona
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 4,
+      startLat: 41.3851,
+      startLng: 2.1734, // Barcelona
+      endLat: 33.5731,
+      endLng: -7.5898, // Casablanca
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 4,
+      startLat: 41.3851,
+      startLng: 2.1734, // Barcelona
+      endLat: 33.5731,
+      endLng: -7.5898, // Casablanca
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 5,
+      startLat: 33.5731,
+      startLng: -7.5898, // Casablanca
+      endLat: 51.5074,
+      endLng: -0.1278, // London
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 5,
+      startLat: 33.5731,
+      startLng: -7.5898, // Casablanca
+      endLat: 51.5074,
+      endLng: -0.1278, // London
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 6,
+      startLat: 51.5074,
+      startLng: -0.1278, // London
+      endLat: 33.5731,
+      endLng: -7.5898, // Casablanca
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+    {
+      order: 6,
+      startLat: 51.5074,
+      startLng: -0.1278, // London
+      endLat: 33.5731,
+      endLng: -7.5898, // Casablanca
+      arcAlt: 0.2,
+      color: colors[Math.floor(Math.random() * (colors.length - 1))],
+    },
+  ];
 
   return (
     <section className="w-full relative flex items-center justify-center flex-col px-4 md:px-0 ">
       {/* hero */}
       <Hero />
-      {/* services */}
+      {/* about */}
+      <About />
       <Services />
-      {/* technologies */}
+
+      {/* testimonials */}
       <Wrapper className="flex flex-col items-center justify-center py-12 relative">
         <div className="hidden md:block absolute -top-1/4 -left-1/3 w-72 h-72 bg-indigo-500 rounded-full blur-[10rem] -z-10"></div>
         <Container>
@@ -82,7 +278,7 @@ const HomePage = () => {
         </Container>
       </Wrapper>
 
-      {/* contact */}
+      {/* newsletter */}
       <Wrapper className="flex flex-col items-center justify-center  relative">
         <Container>
           <LampContainer>
