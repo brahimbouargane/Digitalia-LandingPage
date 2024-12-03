@@ -191,7 +191,7 @@ const Hero = () => {
               </motion.h1>
 
               <motion.p
-                className="max-w-xl mx-auto text-sm md:text-lg text-neutral-200 dark:text-neutral-700 text-center mt-6"
+                className="max-w-xl mx-auto text-xs md:text-lg text-neutral-200 dark:text-neutral-700 text-center mt-6"
                 variants={titleVariants}
                 tabIndex={0}
               >
