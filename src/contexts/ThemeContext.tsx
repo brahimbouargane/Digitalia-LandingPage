@@ -25,12 +25,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       (!localStorage.getItem("theme") &&
         window.matchMedia("(prefers-color-scheme: dark)").matches);
 
-    const currentTheme = isDark ? "dark" : "light";
+    const currentTheme = isDark ? "light" : "light";
     setTheme(currentTheme);
 
     if (isDark) {
       document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
+      localStorage.setItem("theme", "light");
     } else {
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
@@ -41,7 +41,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
+      localStorage.setItem("theme", "light");
     } else {
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
@@ -49,7 +49,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, [theme]);
 
   const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
+    const newTheme = theme === "light" ? "light" : "light";
     setTheme(newTheme);
   };
 
