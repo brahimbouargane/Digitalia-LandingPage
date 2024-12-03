@@ -1,0 +1,11 @@
+export { default as AngularLogo } from "./icons/angular-icon";
+export { default as AwsLogo } from "./icons/aws-icon";
+export { default as FigmaLogo } from "./icons/figma-icon";
+export { default as FlutterLogo } from "./icons/flutter-icon";
+export { default as GithubLogo } from "./icons/github-icon";
+export { default as DockerLogo } from "./icons/docker-icon";
+export { default as JavaLogo } from "./icons/java-icon";
+export { default as JavascriptLogo } from "./icons/javascript-logo";
+export { default as LaravelLogo } from "./icons/laravel-icon";
+export { default as PythonLogo } from "./icons/python";
+export { default as SpringLogo } from "./icons/spring";

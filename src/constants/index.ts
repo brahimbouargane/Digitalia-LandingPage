@@ -1,20 +1,130 @@
+import {
+  AngularLogo,
+  AwsLogo,
+  DockerLogo,
+  JavascriptLogo,
+  LaravelLogo,
+  JavaLogo,
+  FigmaLogo,
+  FlutterLogo,
+  GithubLogo,
+  PythonLogo,
+  SpringLogo,
+} from "@/assets";
 import { Icons } from "@/src/components";
+import {
+  FaReact,
+  FaAngular,
+  FaAws,
+  FaGithub,
+  FaDocker,
+  FaNode,
+  FaPython,
+  FaVuejs,
+  FaFigma,
+  FaLaravel,
+  FaJava,
+} from "react-icons/fa";
+import {
+  SiTypescript,
+  SiJavascript,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiFirebase,
+  SiMongodb,
+  SiPostgresql,
+  SiFlutter,
+  SiSpring,
+} from "react-icons/si";
+import { Heart, Target, Users } from "lucide-react";
 
 export const perks = [
   {
-    icon: Icons.auth,
-    title: "Sign Up",
-    info: "Create your free account to get started with Astra.",
+    icon: Users,
+    title: "Collaborative Spirit",
+    info: "Working together to achieve extraordinary results.",
   },
   {
-    icon: Icons.customize,
-    title: "Customize",
-    info: "Choose a template and customize it to fit your needs.",
+    icon: Target,
+    title: "Innovation First",
+    info: "Pushing boundaries with cutting-edge solutions.",
   },
   {
-    icon: Icons.launch,
-    title: "Launch",
-    info: "Publish your website and share it with the world.",
+    icon: Heart,
+    title: "Client Success",
+    info: "Your growth is our primary mission.",
+  },
+];
+
+export const technologies = [
+  {
+    name: "React",
+    icon: FaReact,
+    color: "#61DAFB",
+  },
+  {
+    name: "Angular",
+    icon: FaAngular,
+    color: "#DD0031",
+  },
+  {
+    name: "Next.js",
+    icon: SiNextdotjs,
+    color: "#000000",
+  },
+  {
+    name: "TypeScript",
+    icon: SiTypescript,
+    color: "#3178C6",
+  },
+  {
+    name: "Node.js",
+    icon: FaNode,
+    color: "#339933",
+  },
+  {
+    name: "AWS",
+    icon: FaAws,
+    color: "#FF9900",
+  },
+  {
+    name: "GitHub",
+    icon: FaGithub,
+    color: "#181717",
+  },
+  {
+    name: "Figma",
+    icon: FigmaLogo,
+  },
+  {
+    name: "Flutter",
+    icon: SiFlutter,
+    color: "#1fbcfd",
+  },
+  {
+    name: "Laravel",
+    icon: FaLaravel,
+    color: "#ff2d20",
+  },
+  {
+    name: "Java",
+    icon: JavaLogo,
+    color: "#E76F00",
+  },
+  {
+    name: "Docker",
+    icon: FaDocker,
+    color: "#387EB8",
+  },
+  {
+    name: "Python",
+    icon: PythonLogo,
+    color: "#FFE052",
+  },
+  {
+    name: "Spring",
+    icon: SiSpring,
+    color: "#339933",
   },
 ];
 
