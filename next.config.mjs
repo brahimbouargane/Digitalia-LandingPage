@@ -8,6 +8,9 @@ const nextConfig = {
     config.resolve.fallback = { fs: false };
     return config;
   },
+  experimental: {
+    appDir: true,
+  },
 };
 
 export default nextConfig;

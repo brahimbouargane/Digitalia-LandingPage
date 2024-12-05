@@ -22,8 +22,9 @@ import {
 const Services = () => {
   const content = [
     {
-      title: "IT Development",
-      description: "Custom software and app solutions.",
+      title: "Software Development",
+      description:
+        "Customized software solutions and applications tailored to your business needs.",
       icon: Code2,
       image: it,
       content: (
@@ -31,15 +32,21 @@ const Services = () => {
           <Image
             src={it}
             className="h-full w-full object-cover"
-            alt="IT Development services"
+            alt="Software Development services"
             priority
           />
         </div>
       ),
+      details: [
+        "Mobile and web applications with modern, high-performance interfaces",
+        "Business process automation with tailored tools",
+        "Implementation of advanced tools and frameworks",
+      ],
     },
     {
       title: "Data Analytics",
-      description: "Unlock actionable insights.",
+      description:
+        "Transform raw data into actionable insights for informed decision-making.",
       icon: BarChart,
       image: data,
       content: (
@@ -51,10 +58,15 @@ const Services = () => {
           />
         </div>
       ),
+      details: [
+        "Efficient data processing and information management",
+        "Interactive dashboards for precise monitoring",
+      ],
     },
     {
       title: "Cloud Solutions",
-      description: "Scalable and secure infrastructure.",
+      description:
+        "Scalable and secure infrastructure for optimal flexibility and security.",
       icon: Cloud,
       image: cloud,
       content: (
@@ -66,10 +78,16 @@ const Services = () => {
           />
         </div>
       ),
+      details: [
+        "Real-time scalability for resource optimization",
+        "Advanced security standards implementation",
+        "Hybrid cloud solutions combining on-premises and cloud benefits",
+      ],
     },
     {
       title: "AI & Machine Learning",
-      description: "Smarter business decisions.",
+      description:
+        "Transform your business with AI-driven solutions and intelligent systems.",
       icon: Brain,
       image: ai,
       content: (
@@ -81,10 +99,15 @@ const Services = () => {
           />
         </div>
       ),
+      details: [
+        "Task automation for enhanced productivity",
+        "Intelligent chatbot design and implementation",
+        "Adaptive AI systems for specific business needs",
+      ],
     },
     {
-      title: "Consulting",
-      description: "Strategies for digital transformation.",
+      title: "Digital Transformation Consulting",
+      description: "Strategic guidance for successful digital evolution.",
       icon: UserCog,
       image: consulting,
       content: (
@@ -96,17 +119,22 @@ const Services = () => {
           />
         </div>
       ),
+      details: [
+        "Comprehensive process auditing for digitization opportunities",
+        "Customized digital transformation strategy development",
+        "Continuous operational efficiency optimization",
+      ],
     },
   ];
   return (
     <Wrapper
       id="services"
-      className="flex flex-col items-center justify-center py-12 relative"
+      className="flex flex-col items-center justify-center pt-12 pb-0 relative"
     >
       <div className="hidden md:block absolute top-0 -right-1/3 w-72 h-72 bg-primary rounded-full blur-[10rem] -z-10"></div>
       <div className="hidden md:block absolute bottom-0 -left-1/3 w-72 h-72 bg-indigo-600 rounded-full blur-[10rem] -z-10"></div>
       <Container>
-        <div className="max-w-md mx-auto text-start md:text-center">
+        <div className="max-w-md mx-auto text-center md:text-center">
           <SectionBadge title="Services" />
           <h2 className="text-3xl bg-clip-text tracking-tight md:text-5xl md:!leading-snug  text-center bg-gradient-to-b from-neutral-400 to-white text-transparent dark:from-neutral-800 dark:to-neutral-600 font-semibold mt-6">
             Discover our Services

@@ -84,7 +84,7 @@ const titleVariants = {
 export const GoogleGeminiEffect = ({ className }: { className?: string }) => {
   return (
     <motion.div
-      className={cn("relative mt-[18rem] lg:-mt-14 xl:-mt-20 z-50", className)}
+      className={cn("relative mt-[12rem]  lg:-mt-14 xl:-mt-20 z-50", className)}
       variants={containerVariants}
     >
       <motion.div
@@ -93,7 +93,7 @@ export const GoogleGeminiEffect = ({ className }: { className?: string }) => {
       >
         <motion.div
           variants={titleVariants}
-          className="flex items-center gap-1  justify-center w-max group relative overflow-hidden rounded-full px-4 py-1 shadow-[0_1000px_0_0_hsl(0_0%_20%)_inset] transition-colors duration-200"
+          className="flex items-center gap-1  justify-center max-w-fit group relative overflow-hidden rounded-full px-2 lg:px-4 py-2 shadow-[0_1000px_0_0_hsl(0_0%_20%)_inset] transition-colors duration-200"
         >
           <span>
             <span className="spark mask-gradient absolute inset-0 h-[100%] w-[100%] animate-flip overflow-hidden rounded-full [mask:linear-gradient(white,_transparent_50%)] before:absolute before:aspect-square before:w-[200%] before:rotate-[-90deg] before:animate-rotate before:bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] before:content-[''] before:[inset:0_auto_auto_50%] before:[translate:-50%_-15%]" />
@@ -105,14 +105,14 @@ export const GoogleGeminiEffect = ({ className }: { className?: string }) => {
             className="z-10 py-0.5 text-sm text-neutral-100 flex items-center justify-center gap-2"
           >
             <motion.p
-              className=" hidden md:flex text-foreground text-sm text-center md:text-base font-medium pl-4 pr-4 lg:pr-0"
+              className=" md:flex text-foreground text-sm text-center md:text-base font-medium px-0 lg:px-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
               ✨ Let's Create Something Exceptional
             </motion.p>
-            <motion.div
+            {/* <motion.div
               initial={{ x: -10, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.7 }}
@@ -135,7 +135,7 @@ export const GoogleGeminiEffect = ({ className }: { className?: string }) => {
                   <ArrowRight className="w-4 h-4 ml-1" />
                 </motion.div>
               </Button>
-            </motion.div>
+            </motion.div> */}
           </motion.span>
         </motion.div>
       </motion.div>

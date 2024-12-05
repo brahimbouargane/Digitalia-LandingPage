@@ -15,25 +15,13 @@ module.exports = {
     container: {
       center: true,
       padding: "2rem",
-      // screens: {
-      //   xl: "1250px",
-      //   "2xl": "1400px",
-      // },
       screens: {
+        xs: "375px",
         sm: "640px",
-        // => @media (min-width: 640px) { ... }
-
         md: "768px",
-        // => @media (min-width: 768px) { ... }
-
         lg: "1024px",
-        // => @media (min-width: 1024px) { ... }
-
         xl: "1200px",
-        // => @media (min-width: 1280px) { ... }
-
         "2xl": "1536px",
-        // => @media (min-width: 1536px) { ... }
       },
     },
     extend: {
@@ -132,6 +120,9 @@ module.exports = {
         shimmer: "shimmer 2s linear infinite",
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
         marquee: "marquee var(--duration) linear infinite",
+      },
+      boxShadow: {
+        input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
       },
     },
   },

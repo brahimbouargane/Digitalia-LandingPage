@@ -8,6 +8,7 @@ interface Content {
   title: string;
   icon: any;
   description: string;
+  details?: any;
   content?: React.ReactNode;
 }
 
@@ -74,73 +75,13 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
     },
   };
 
-  // return (
-  //   <motion.div
-  //     ref={ref}
-  //     className="min-h-screen relative flex flex-col lg:flex-row justify-between gap-10 px-4 lg:px-10 py-20 max-w-7xl mx-auto"
-  //   >
-  //     {/* Text Content */}
-  //     <div className="relative flex items-start w-full lg:w-1/2 px-4">
-  //       <div className="max-w-2xl">
-  //         {content.map((item, index) => {
-  //           const Icon = item.icon;
-  //           return (
-  //             <motion.div
-  //               key={`${item.title}-${index}`}
-  //               className={cn(
-  //                 "py-20", // Base padding
-  //                 index === 0 ? "mt-0" : "mt-20", // First item no top margin
-  //                 index === content.length - 1 ? "mb-40" : "mb-20" // Last item extra bottom margin
-  //               )}
-  //               variants={cardVariants}
-  //               initial="hidden"
-  //               animate="visible"
-  //               custom={index}
-  //               role="region"
-  //               aria-label={`Section ${index + 1}: ${item.title}`}
-  //             >
-  //               <div className="flex gap-4">
-  //                 <Icon className="w-8 h-8 md:w -10 md:h-10 mb-4 text-primary" />{" "}
-  //                 {/* Added icon */}
-  //                 <motion.h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-100">
-  //                   {item.title}
-  //                 </motion.h2>
-  //               </div>
-  //               <motion.p className="text-base md:text-lg text-slate-300 max-w-sm mt-6">
-  //                 {item.description}
-  //               </motion.p>
-  //             </motion.div>
-  //           );
-  //         })}
-  //       </div>
-  //     </div>
-
-  //     {/* Image Content */}
-  //     <div
-  //       className={cn(
-  //         "hidden lg:block h-[400px] w-full lg:w-[600px] rounded-lg sticky top-20 overflow-hidden shadow-lg",
-  //         contentClassName
-  //       )}
-  //     >
-  //       <motion.div
-  //         variants={imageVariants}
-  //         initial="hidden"
-  //         animate="visible"
-  //         key={activeCard}
-  //         className="w-full h-full"
-  //       >
-  //         {content[activeCard].content}
-  //       </motion.div>
-  //     </div>
-  //   </motion.div>
-  // );
   return (
     <motion.div
       ref={ref}
-      className="min-h-screen relative flex flex-col lg:flex-row justify-between gap-10 px-4 lg:px-10 py-16 max-w-7xl mx-auto"
+      className="min-h-screen relative flex flex-col lg:flex-row justify-between gap-10  py-5 lg:px-10 lg:py-20  max-w-7xl mx-auto"
     >
       {/* Text Content */}
-      <div className="relative flex items-start w-full lg:w-1/2 px-4">
+      <div className="relative flex items-start w-full lg:w-1/2 ">
         <div className="max-w-2xl w-full">
           {content.map((item, index) => {
             const Icon = item.icon;
@@ -149,8 +90,8 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
                 key={`${item.title}-${index}`}
                 className={cn(
                   "py-10 lg:py-20", // Base padding
-                  index === 0 ? "mt-0" : "mt-10 lg:mt-20", // First item no top margin
-                  index === content.length - 1 ? "mb-10 lg:mb-20" : "mb-20" // Adjust last item margin
+                  index === 0 ? "mt-0" : "mt-20 lg:mt-20", // First item no top margin
+                  index === content.length - 1 ? "!mt-0" : "!mt-0" // Adjust last item margin
                 )}
                 variants={cardVariants}
                 initial="hidden"
@@ -165,9 +106,20 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
                     {item.title}
                   </motion.h2>
                 </div>
-                <motion.p className="text-base md:text-lg text-slate-300 max-w-sm mt-6">
-                  {item.description}
-                </motion.p>
+
+                <div className="text-base  text-slate-300 w-full max-w-full md:max-w-fit mt-6 px-4 sm:px-0">
+                  <motion.p className="mb-4">{item.description}</motion.p>
+                  <ul className="space-y-2 w-full">
+                    {item.details.map((detail: any, index: any) => (
+                      <li key={index} className="flex items-start">
+                        <motion.span className="mr-2 flex-shrink-0 text-primary">
+                          •
+                        </motion.span>
+                        <motion.span className="flex-1">{detail}</motion.span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
                 {/* Mobile/Tablet Image - shown below content */}
                 <div className="lg:hidden mt-8 w-full h-[300px] rounded-lg overflow-hidden shadow-lg">

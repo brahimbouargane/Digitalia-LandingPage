@@ -34,9 +34,9 @@ const Navbar = () => {
           <div className="flex items-start">
             <Link href="#home" className="flex items-center gap-2">
               {theme === "light" ? (
-                <Icons.logo className="w-50 " />
+                <Icons.logo className="w-60 " />
               ) : (
-                <Icons.logoDark className="w-50 " />
+                <Icons.logoDark className="w-60 " />
               )}
             </Link>
           </div>
@@ -119,7 +119,7 @@ const Navbar = () => {
                 transition={{ delay: 0.1 }}
                 className="flex flex-col px-8"
               >
-                <ul className="px-4 py-4 space-y-6 items-center text-center">
+                <ul className="px-4 py-16 space-y-6 items-center text-center">
                   {menuItems.map((item, i) => (
                     <motion.li
                       initial={{ y: -20, opacity: 0 }}
@@ -150,7 +150,7 @@ const Navbar = () => {
                   >
                     <Button
                       variant="outline"
-                      className="rounded-full px-8 py-6 text-lg w-full"
+                      className="rounded-full px-8 py-6 text-white bg-blue-900  text-lg w-full"
                       asChild
                     >
                       <Link

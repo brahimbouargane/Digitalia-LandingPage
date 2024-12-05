@@ -18,21 +18,21 @@ const Footer = () => {
         {/* Logo */}
         <Link href="/" className="flex items-center justify-center">
           {theme === "light" ? (
-            <Icons.logo className="w-60 " />
+            <Icons.logo className="w-72 " />
           ) : (
-            <Icons.logoDark className="w-60 " />
+            <Icons.logoDark className="w-72 " />
           )}
         </Link>
 
         {/* Description */}
         <p className="text-muted-foreground text-sm max-w-[450px]">
-          Transforming businesses through digital innovation since [year].
+          Transforming businesses through digital.
         </p>
       </div>
 
       {/* Copyright */}
       <div className="mt-4 border-t border-border/40 pt-4 md:pt-8 w-full text-center">
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-muted-foreground uppercase">
           &copy; {new Date().getFullYear()} DIGITALIA SOLUTIONS. All rights
           reserved.
         </p>
