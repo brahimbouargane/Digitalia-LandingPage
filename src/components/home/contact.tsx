@@ -1,5 +1,5 @@
 // export default Contact;
-import { useCallback, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import Wrapper from "../global/wrapper";
 import Container from "../global/container";
 import { Button } from "../ui/button";
@@ -17,16 +17,6 @@ import {
   FormItem,
   FormMessage,
 } from "../ui/form";
-// import dynamic from "next/dynamic";
-// const WorldMap = dynamic(
-//   () => import("../ui/world-map").then((mod) => mod.WorldMap),
-//   {
-//     loading: () => (
-//       <div className="w-full h-[400px] animate-pulse bg-gray-800/20 rounded-lg" />
-//     ),
-//     ssr: false,
-//   }
-// );
 
 import SectionBadge from "../ui/section-badge";
 import { WorldMap } from "../ui/world-map";
@@ -97,43 +87,36 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   }
-  const MapComponent = () => {
-    const dots = useMemo(
-      () => [
-        {
-          start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
-          end: { lat: 44.8566, lng: 0.8522 }, // london
-        },
-        {
-          start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
-          end: { lat: 27.5074, lng: -0.1278 }, // paris
-        },
-        {
-          start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
-          end: { lat: 41.3851, lng: 2.1734 }, // Barcelona
-        },
-        {
-          start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
-          end: { lat: 30.7128, lng: -74.006 }, // New York
-        },
-        {
-          start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
-          end: { lat: 45.5017, lng: -73.5673 }, // Montreal
-        },
-        {
-          start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
-          end: { lat: 42.52, lng: 9.405 }, // Berlin
-        },
-      ],
-      []
-    );
 
-    return (
-      <div className="relative w-full">
-        <WorldMap dots={dots} />
-      </div>
-    );
-  };
+  const dots = useMemo(
+    () => [
+      {
+        start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
+        end: { lat: 44.8566, lng: 0.8522 }, // london
+      },
+      {
+        start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
+        end: { lat: 27.5074, lng: -0.1278 }, // paris
+      },
+      {
+        start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
+        end: { lat: 41.3851, lng: 2.1734 }, // Barcelona
+      },
+      {
+        start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
+        end: { lat: 30.7128, lng: -74.006 }, // New York
+      },
+      {
+        start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
+        end: { lat: 45.5017, lng: -73.5673 }, // Montreal
+      },
+      {
+        start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
+        end: { lat: 42.52, lng: 9.405 }, // Berlin
+      },
+    ],
+    []
+  );
 
   return (
     <Wrapper id="contact">
@@ -148,35 +131,10 @@ const Contact = () => {
             exceptional results.
           </p>
         </div>
-        {/* <WorldMap
-          dots={[
-            {
-              start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
-              end: { lat: 44.8566, lng: 0.8522 }, // london
-            },
-            {
-              start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
-              end: { lat: 27.5074, lng: -0.1278 }, // paris
-            },
-            {
-              start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
-              end: { lat: 41.3851, lng: 2.1734 }, // Barcelona
-            },
-            {
-              start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
-              end: { lat: 30.7128, lng: -74.006 }, // New York
-            },
-            {
-              start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
-              end: { lat: 45.5017, lng: -73.5673 }, // Montreal
-            },
-            {
-              start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
-              end: { lat: 42.52, lng: 9.405 }, // Berlin
-            },
-          ]}
-        /> */}
-        <MapComponent />
+
+        <div className="relative w-full">
+          <WorldMap dots={dots} />
+        </div>
       </Container>
 
       <Container className="relative py-10">
