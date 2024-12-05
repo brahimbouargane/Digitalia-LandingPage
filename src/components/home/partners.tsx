@@ -9,89 +9,128 @@ import AutoPlay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/src/lib/utils";
 import { Button } from "../ui/button";
-// import dynamic from "next/dynamic";
-// const GlareCard = dynamic(
-//   () => import("../ui/glare-card").then((mod) => mod.GlareCard),
-//   {
-//     loading: () => <div>Loading...</div>, // Optional loading component
-//     ssr: true, // Set to false if you don't need server-side rendering for this component
-//   }
-// );
+import CodingTech from "@/assets/photos/codingtech.png";
+import NordSud from "@/assets/photos/nord-sud.png";
+import Onoffice from "@/assets/photos/onoffice.png";
+import Vibe from "@/assets/photos/vibe.png";
+import Image from "next/image";
 
+// const partners = [
+//   {
+//     type: "icon",
+//     content: (
+//       <svg
+//         width="66"
+//         height="65"
+//         viewBox="0 0 66 65"
+//         fill="none"
+//         xmlns="http://www.w3.org/2000/svg"
+//         className="h-14 w-14 text-white"
+//       >
+//         <path
+//           d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
+//           stroke="currentColor"
+//           strokeWidth="15"
+//           strokeMiterlimit="3.86874"
+//           strokeLinecap="round"
+//         />
+//       </svg>
+//     ),
+//   },
+//   {
+//     type: "icon",
+//     content: (
+//       <svg
+//         width="66"
+//         height="65"
+//         viewBox="0 0 66 65"
+//         fill="none"
+//         xmlns="http://www.w3.org/2000/svg"
+//         className="h-14 w-14 text-white"
+//       >
+//         <path
+//           d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
+//           stroke="currentColor"
+//           strokeWidth="15"
+//           strokeMiterlimit="3.86874"
+//           strokeLinecap="round"
+//         />
+//       </svg>
+//     ),
+//   },
+//   {
+//     type: "text",
+//     title: "The greatest trick",
+//     description:
+//       "The greatest trick the devil ever pulled was to convince the world that he didn't exist.",
+//   },
+//   {
+//     type: "text",
+//     title: "The greatest trick",
+//     description:
+//       "The greatest trick the devil ever pulled was to convince the world that he didn't exist.",
+//   },
+//   {
+//     type: "text",
+//     title: "The greatest trick",
+//     description:
+//       "The greatest trick the devil ever pulled was to convince the world that he didn't exist.",
+//   },
+//   {
+//     type: "text",
+//     title: "The greatest trick",
+//     description:
+//       "The greatest trick the devil ever pulled was to convince the world that he didn't exist.",
+//   },
+//   {
+//     type: "text",
+//     title: "The greatest trick",
+//     description:
+//       "The greatest trick the devil ever pulled was to convince the world that he didn't exist.",
+//   },
+//   // Add more partners as needed
+// ];
 const partners = [
   {
-    type: "icon",
-    content: (
-      <svg
-        width="66"
-        height="65"
-        viewBox="0 0 66 65"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-14 w-14 text-white"
-      >
-        <path
-          d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
-          stroke="currentColor"
-          strokeWidth="15"
-          strokeMiterlimit="3.86874"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
+    type: "logo",
+    image: Vibe,
+    name: "Partner 1",
   },
   {
-    type: "icon",
-    content: (
-      <svg
-        width="66"
-        height="65"
-        viewBox="0 0 66 65"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-14 w-14 text-white"
-      >
-        <path
-          d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
-          stroke="currentColor"
-          strokeWidth="15"
-          strokeMiterlimit="3.86874"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
+    type: "logo",
+    image: Onoffice,
+    name: "Partner 2",
   },
   {
-    type: "text",
-    title: "The greatest trick",
-    description:
-      "The greatest trick the devil ever pulled was to convince the world that he didn't exist.",
+    type: "logo",
+    image: NordSud,
+    name: "Partner 3",
   },
   {
-    type: "text",
-    title: "The greatest trick",
-    description:
-      "The greatest trick the devil ever pulled was to convince the world that he didn't exist.",
+    type: "logo",
+    image: CodingTech,
+    name: "Partner 4",
   },
   {
-    type: "text",
-    title: "The greatest trick",
-    description:
-      "The greatest trick the devil ever pulled was to convince the world that he didn't exist.",
+    type: "logo",
+    image: Vibe,
+    name: "Partner 1",
   },
   {
-    type: "text",
-    title: "The greatest trick",
-    description:
-      "The greatest trick the devil ever pulled was to convince the world that he didn't exist.",
+    type: "logo",
+    image: Onoffice,
+    name: "Partner 2",
   },
   {
-    type: "text",
-    title: "The greatest trick",
-    description:
-      "The greatest trick the devil ever pulled was to convince the world that he didn't exist.",
+    type: "logo",
+    image: NordSud,
+    name: "Partner 3",
   },
-  // Add more partners as needed
+  {
+    type: "logo",
+    image: CodingTech,
+    name: "Partner 4",
+  },
 ];
 
 const Partners = () => {
@@ -142,7 +181,7 @@ const Partners = () => {
           <div className="flex -ml-4">
             {partners.map((partner, index) => (
               <div key={index} className="flex-none pl-3">
-                <GlareCard
+                {/* <GlareCard
                   className={cn(
                     "h-full transition-all duration-300  hover:scale-[1.02]",
                     partner.type === "icon"
@@ -150,19 +189,35 @@ const Partners = () => {
                       : "flex flex-col items-start justify-end p-6 sm:p-8",
                     "backdrop-blur-sm bg-opacity-90"
                   )}
+                > */}
+                <GlareCard
+                  className={cn(
+                    "group", // Add group class for hover functionality
+                    partner.type === "logo"
+                      ? "flex items-center justify-center"
+                      : "flex flex-col items-start justify-end p-6 sm:p-8"
+                  )}
                 >
-                  {partner.type === "icon" ? (
-                    <div className="transform transition-transform duration-300 hover:scale-110">
-                      {partner.content}
+                  {partner.type === "logo" ? (
+                    <div className="relative w-full h-full flex items-center justify-center p-8 brightness-0 invert ">
+                      <div className="relative w-full aspect-square">
+                        <Image
+                          src={partner.image}
+                          alt={partner.name}
+                          fill
+                          className="object-contain transition-all duration-300 "
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                      </div>
                     </div>
                   ) : (
                     <>
-                      <h3 className="font-bold text-white text-xl sm:text-2xl">
-                        {partner.title}
+                      {/* <h3 className="font-bold text-white text-xl sm:text-2xl">
+                        {partner?.title}
                       </h3>
                       <p className="font-normal text-neutral-200 mt-4 text-sm sm:text-base line-clamp-3">
                         {partner.description}
-                      </p>
+                      </p> */}
                     </>
                   )}
                 </GlareCard>
