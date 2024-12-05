@@ -136,22 +136,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <GoogleGeminiEffect />
       </div>
-      {/* <div className="absolute inset-0 z-0">
-        <GoogleGeminiEffect className="transform scale-105 xs:scale-100" />
-      </div> */}
-      {/* Scroll Indicator */}
-      {/* <motion.div
-        style={{ opacity }}
-        className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50"
-        initial={{ y: 0 }}
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-      >
-        <div className="flex flex-col items-center text-sm text-neutral-400">
-          <Mouse className="w-6 h-6 mb-2" />
-          <MoveDown className="w-4 h-4" />
-        </div>
-      </motion.div> */}
+
       <motion.div
         style={{ opacity }}
         className="fixed bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-50"
@@ -199,7 +184,7 @@ const Hero = () => {
             >
               <motion.h1
                 variants={titleVariants}
-                className="text-2xl sm:text-4xl md:text-6xl bg-clip-text tracking-tight  md:!leading-snug font-semibold text-center bg-gradient-to-b from-neutral-400 to-white text-transparent dark:from-neutral-800 dark:to-neutral-600"
+                className="text-3xl sm:text-4xl md:text-6xl bg-clip-text tracking-tight  md:!leading-snug font-semibold text-center bg-gradient-to-b from-neutral-400 to-white text-transparent dark:from-neutral-800 dark:to-neutral-600"
                 tabIndex={0}
               >
                 Transform Your Vision into a{" "}

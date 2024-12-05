@@ -47,32 +47,33 @@ const Navbar = () => {
               {" "}
               {/* Negative margin to remove gaps */}
               {menuItems.map((item, idx) => (
-                <Link
-                  href={item.href}
-                  key={item.label}
-                  className="px-4 py-2 relative block group transition-colors duration-300 hover:text-gray-800  "
-                  onMouseEnter={() => setHoveredIndex(idx)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                >
-                  <AnimatePresence>
-                    {hoveredIndex === idx && (
-                      <motion.span
-                        className="absolute inset-0 -z-10 bg-neutral-200 dark:bg-slate-800/[0.8] rounded-3xl pointer-events-none "
-                        layoutId="hoverBackground"
-                        initial={{ opacity: 0 }}
-                        animate={{
-                          opacity: 1,
-                          transition: { duration: 0.15 },
-                        }}
-                        exit={{
-                          opacity: 0,
-                          transition: { duration: 0.15, delay: 0.2 },
-                        }}
-                      />
-                    )}
-                    <span className="relative z-10 ">{item.label}</span>
-                  </AnimatePresence>
-                </Link>
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="px-4 py-2 relative block group transition-colors duration-300 hover:text-gray-800  "
+                    onMouseEnter={() => setHoveredIndex(idx)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                  >
+                    <AnimatePresence>
+                      {hoveredIndex === idx && (
+                        <motion.span
+                          className="absolute inset-0 -z-10 bg-neutral-200 dark:bg-slate-800/[0.8] rounded-3xl pointer-events-none "
+                          layoutId="hoverBackground"
+                          initial={{ opacity: 0 }}
+                          animate={{
+                            opacity: 1,
+                            transition: { duration: 0.15 },
+                          }}
+                          exit={{
+                            opacity: 0,
+                            transition: { duration: 0.15, delay: 0.2 },
+                          }}
+                        />
+                      )}
+                      <span className="relative z-10 ">{item.label}</span>
+                    </AnimatePresence>
+                  </Link>
+                </li>
               ))}
             </ul>
           </nav>

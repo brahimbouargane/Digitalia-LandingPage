@@ -121,28 +121,6 @@ const HomePage = () => {
         </Container>
       </Wrapper>
 
-      {/* newsletter */}
-      {/* <Wrapper className="flex flex-col items-center justify-center  relative">
-        <Container>
-          <div className="max-w-md mx-auto text-center md:text-center">
-            <SectionBadge title="Our Contact" />
-          </div>
-        </Container>
-        <Container>
-          <LampContainer>
-            <div className="flex flex-col items-center justify-center relative w-full text-center">
-              <h2 className="text-3xl bg-clip-text tracking-tight lg:text-5xl xl:text-6xl lg:!leading-snug font-semibold bg-gradient-to-b from-neutral-400 to-white text-transparent dark:from-neutral-800 dark:to-neutral-600 ">
-                From Vision to Reality <br /> Built For Success
-              </h2>
-              <p className="text-muted-foreground mt-6 max-w-md mx-auto">
-                Transform your digital presence with our innovative solutions.
-                We combine cutting-edge technology with strategic expertise to
-                deliver exceptional results.
-              </p>
-            </div>
-          </LampContainer>
-        </Container>
-      </Wrapper> */}
       <Contact />
     </section>
   );
