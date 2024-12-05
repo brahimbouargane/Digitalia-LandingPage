@@ -3,20 +3,20 @@ import React, { useCallback, useEffect } from "react";
 import Wrapper from "../global/wrapper";
 import Container from "../global/container";
 import SectionBadge from "../ui/section-badge";
-// import { GlareCard } from "../ui/glare-card";
+import { GlareCard } from "../ui/glare-card";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoPlay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/src/lib/utils";
 import { Button } from "../ui/button";
-import dynamic from "next/dynamic";
-const GlareCard = dynamic(
-  () => import("../ui/glare-card").then((mod) => mod.GlareCard),
-  {
-    loading: () => <div>Loading...</div>, // Optional loading component
-    ssr: true, // Set to false if you don't need server-side rendering for this component
-  }
-);
+// import dynamic from "next/dynamic";
+// const GlareCard = dynamic(
+//   () => import("../ui/glare-card").then((mod) => mod.GlareCard),
+//   {
+//     loading: () => <div>Loading...</div>, // Optional loading component
+//     ssr: true, // Set to false if you don't need server-side rendering for this component
+//   }
+// );
 
 const partners = [
   {

@@ -17,19 +17,19 @@ import {
   FormItem,
   FormMessage,
 } from "../ui/form";
-import dynamic from "next/dynamic";
-const WorldMap = dynamic(
-  () => import("../ui/world-map").then((mod) => mod.WorldMap),
-  {
-    loading: () => (
-      <div className="w-full h-[400px] animate-pulse bg-gray-800/20 rounded-lg" />
-    ),
-    ssr: false,
-  }
-);
+// import dynamic from "next/dynamic";
+// const WorldMap = dynamic(
+//   () => import("../ui/world-map").then((mod) => mod.WorldMap),
+//   {
+//     loading: () => (
+//       <div className="w-full h-[400px] animate-pulse bg-gray-800/20 rounded-lg" />
+//     ),
+//     ssr: false,
+//   }
+// );
 
 import SectionBadge from "../ui/section-badge";
-// import { WorldMap } from "../ui/world-map";
+import { WorldMap } from "../ui/world-map";
 
 const formSchema = z.object({
   name: z.string().min(2, {
