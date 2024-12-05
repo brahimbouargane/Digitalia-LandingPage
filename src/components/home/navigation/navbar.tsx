@@ -34,9 +34,9 @@ const Navbar = () => {
           <div className="flex items-start">
             <Link href="#home" className="flex items-center gap-2">
               {theme === "light" ? (
-                <Icons.logo className="w-60 " />
+                <Icons.logo className="w-52 md:w-60" />
               ) : (
-                <Icons.logoDark className="w-60 " />
+                <Icons.logoDark className="w-52 md:w-60" />
               )}
             </Link>
           </div>

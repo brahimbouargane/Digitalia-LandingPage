@@ -18,9 +18,9 @@ const Footer = () => {
         {/* Logo */}
         <Link href="/" className="flex items-center justify-center">
           {theme === "light" ? (
-            <Icons.logo className="w-72 " />
+            <Icons.logo className="w-56 md:w-72" />
           ) : (
-            <Icons.logoDark className="w-72 " />
+            <Icons.logoDark className="w-56 md:w-72" />
           )}
         </Link>
 

@@ -16,6 +16,7 @@ const Icons: IconType = {
       height={170}
       alt="Digitalia solutions logo"
       className={props.className}
+      priority={false}
     />
   ),
   logoDark: (props: LucideProps) => (
@@ -25,6 +26,7 @@ const Icons: IconType = {
       height={170}
       alt="Digitalia solutions logo"
       className={props.className}
+      priority={false}
     />
   ),
   astra: (props: LucideProps) => (

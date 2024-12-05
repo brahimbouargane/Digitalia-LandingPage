@@ -33,7 +33,7 @@ const Services = () => {
             src={it}
             className="h-full w-full object-cover"
             alt="Software Development services"
-            priority
+            priority={false}
           />
         </div>
       ),
@@ -55,6 +55,7 @@ const Services = () => {
             src={data}
             className="h-full w-full object-cover"
             alt="Data Analytics visualization"
+            priority={false}
           />
         </div>
       ),
@@ -75,6 +76,7 @@ const Services = () => {
             src={cloud}
             className="h-full w-full object-cover"
             alt="Cloud infrastructure solutions"
+            priority={false}
           />
         </div>
       ),
@@ -96,6 +98,7 @@ const Services = () => {
             src={ai}
             className="h-full w-full object-cover"
             alt="AI and Machine Learning solutions"
+            priority={false}
           />
         </div>
       ),
@@ -116,6 +119,7 @@ const Services = () => {
             src={consulting}
             className="h-full w-full object-cover"
             alt="Digital transformation consulting"
+            priority={false}
           />
         </div>
       ),

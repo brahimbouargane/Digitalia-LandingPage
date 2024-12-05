@@ -50,6 +50,7 @@ export function WorldMap({ dots = [], lineColor = "#0ea5e9" }: MapProps) {
         height="495"
         width="1056"
         draggable={false}
+        priority={false}
       />
       <svg
         ref={svgRef}
