@@ -107,9 +107,9 @@ export const technologies = [
     color: "#ff2d20",
   },
   {
-    name: "Java",
-    icon: JavaLogo,
-    color: "#E76F00",
+    name: "Postgresql",
+    icon: SiPostgresql,
+    color: "#336791",
   },
   {
     name: "Docker",
