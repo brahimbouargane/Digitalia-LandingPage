@@ -1,5 +1,5 @@
 // export default Contact;
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import Wrapper from "../global/wrapper";
 import Container from "../global/container";
 import { Button } from "../ui/button";
@@ -43,50 +43,56 @@ const Contact = () => {
     message: string;
   }>({ type: null, message: "" });
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    },
-  });
+  // Memoize form configuration
+  const formConfig = useMemo(
+    () => ({
+      resolver: zodResolver(formSchema),
+      defaultValues: {
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      },
+    }),
+    []
+  );
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    try {
-      setIsSubmitting(true);
-      setSubmitStatus({ type: null, message: "" });
+  const form = useForm<z.infer<typeof formSchema>>(formConfig);
 
-      const response = await fetch("/api/send", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
+  // Memoize submit handler
+  const onSubmit = useCallback(
+    async (values: z.infer<typeof formSchema>) => {
+      try {
+        setIsSubmitting(true);
+        setSubmitStatus({ type: null, message: "" });
 
-      const data = await response.json();
+        const response = await fetch("/api/send", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(values),
+        });
 
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to send message");
+        const data = await response.json();
+
+        if (!response.ok)
+          throw new Error(data.error || "Failed to send message");
+
+        setSubmitStatus({
+          type: "success",
+          message: "Message sent successfully!",
+        });
+        form.reset();
+      } catch (error) {
+        setSubmitStatus({
+          type: "error",
+          message: "Failed to send message. Please try again.",
+        });
+      } finally {
+        setIsSubmitting(false);
       }
-
-      setSubmitStatus({
-        type: "success",
-        message: "Message sent successfully! We'll get back to you soon.",
-      });
-      form.reset();
-    } catch (error) {
-      console.error("Submission error:", error);
-      setSubmitStatus({
-        type: "error",
-        message: "Failed to send message. Please try again.",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  }
+    },
+    [form]
+  );
 
   const dots = useMemo(
     () => [
@@ -132,9 +138,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="relative w-full">
-          <WorldMap dots={dots} />
-        </div>
+        <div className="relative w-full">{/* <WorldMap dots={dots} /> */}</div>
       </Container>
 
       <Container className="relative py-10">

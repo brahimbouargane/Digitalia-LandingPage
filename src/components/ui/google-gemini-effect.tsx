@@ -87,7 +87,7 @@ export const GoogleGeminiEffect = ({ className }: { className?: string }) => {
       className={cn("relative mt-[12rem]  lg:-mt-14 xl:-mt-20 z-50", className)}
       variants={containerVariants}
     >
-      <motion.div
+      {/* <motion.div
         variants={containerVariants}
         className="absolute top-8 lg:top-28 xl:top-36  inset-0 flex items-center justify-center z-10"
       >
@@ -112,33 +112,9 @@ export const GoogleGeminiEffect = ({ className }: { className?: string }) => {
             >
               ✨ Let's Create Something Exceptional
             </motion.p>
-            {/* <motion.div
-              initial={{ x: -10, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.7 }}
-              className="cursor-pointer "
-              variants={buttonVariants}
-            >
-              <Button
-                size="sm"
-                className="rounded-full cursor-pointer  lg:flex border border-foreground/20 "
-              >
-                Contact Us
-                <motion.div
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 1.5,
-                    ease: "easeInOut",
-                  }}
-                >
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </motion.div>
-              </Button>
-            </motion.div> */}
           </motion.span>
         </motion.div>
-      </motion.div>
+      </motion.div> */}
       <motion.svg
         viewBox="0 0 1440 890"
         className="relative"
