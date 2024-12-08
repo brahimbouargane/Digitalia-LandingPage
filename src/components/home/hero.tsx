@@ -159,25 +159,17 @@ const Hero = () => {
           }
         />
         {/* Planet Logic */}
-        {/* <div
-          className={
-            "absolute size-64 md:size-96 bg-blue-500 rounded-full border border-white/20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-[70%] bg-[radial-gradient(50%_50%_at_16.8%_18.3%,white,rgb(148,184,255)_37.7%,rgb(0,42,102))] shadow-[-20px_-20px_50px_rgb(255,255,255,0.5),-20px_-20px_80px_rgb(255,255,255,0.1),0_0_50px_rgb(59,130,246)]"
-          }
-        /> */}
-        <motion.div
-          variants={planetAnimation}
-          initial="initial"
-          animate="animate"
+        <div
           className={
             "absolute size-64 md:size-96 bg-blue-500 rounded-full border border-white/20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-[70%] bg-[radial-gradient(50%_50%_at_16.8%_18.3%,white,rgb(148,184,255)_37.7%,rgb(0,42,102))] shadow-[-20px_-20px_50px_rgb(255,255,255,0.5),-20px_-20px_80px_rgb(255,255,255,0.1),0_0_50px_rgb(59,130,246)]"
           }
         />
+
         {/* Rings + Mini planets Logic */}
         <motion.div
-          variants={ringAnimation}
-          initial="initial"
-          animate="animate"
           style={{ translateY: "-60%", translateX: "-50%" }}
+          animate={{ rotate: "1turn" }}
+          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
           className={
             "absolute size-[344px] md:size-[580px] border border-white opacity-20 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
           }
