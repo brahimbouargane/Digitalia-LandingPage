@@ -68,7 +68,12 @@ const Contact = () => {
 
         const response = await fetch("/api/send", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "POST, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type",
+          },
           body: JSON.stringify(values),
         });
 

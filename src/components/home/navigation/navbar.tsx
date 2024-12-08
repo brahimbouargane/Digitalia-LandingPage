@@ -89,8 +89,13 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Right Section */}
-          <div className="flex md:hidden items-center gap-4">
+          <div className="flex md:hidden items-center gap-1">
             {/* <ThemeToggle /> */}
+            <Link href="#contact">
+              <button className="inline-flex  text-sm w-28 h-10 animate-shimmer items-center justify-center rounded-full border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] lg:px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                Contact Us
+              </button>
+            </Link>
             <button
               onClick={toggleMenu}
               className={cn(
@@ -144,27 +149,6 @@ const Navbar = () => {
                       </Link>
                     </motion.li>
                   ))}
-                  <motion.li
-                    initial={{ y: -20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.4 }}
-                  >
-                    <Button
-                      variant="outline"
-                      className="rounded-full px-8 py-6 text-white bg-blue-900  text-lg w-full"
-                      asChild
-                    >
-                      <Link
-                        href="#contact"
-                        onClick={() => {
-                          setIsMenuOpen(false);
-                          document.body.style.overflow = "unset";
-                        }}
-                      >
-                        Contact Us
-                      </Link>
-                    </Button>
-                  </motion.li>
                 </ul>
               </motion.nav>
             </motion.div>

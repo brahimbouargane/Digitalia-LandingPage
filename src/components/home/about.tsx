@@ -10,7 +10,7 @@ const About = () => {
   return (
     <Wrapper
       id="about"
-      className="-mt-36 md:mt-0 flex  flex-col items-center justify-center !py-0 md:!py-0 relative"
+      className=" md:mt-0 flex  flex-col items-center justify-center !py-0 md:!py-0 relative"
     >
       <Container>
         <div className="max-w-md mx-auto text-center md:text-center">
