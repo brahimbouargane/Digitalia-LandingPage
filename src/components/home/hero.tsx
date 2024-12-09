@@ -153,15 +153,16 @@ const Hero = () => {
         }}
         ref={sectionRef}
       >
-        <div
+        {/* <div
           className={
             "absolute inset-0 bg-[radial-gradient(75%_75%_at_center_center,rgb(59,130,246,0.5)_15%,rgb(0,24,65,0.5)_78%,transparent)]"
           }
-        />
+        /> */}
+        <div className={"absolute inset-0 "} />
         {/* Planet Logic */}
         <div
           className={
-            "absolute size-64 md:size-96 bg-blue-500 rounded-full border border-white/20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-[70%] bg-[radial-gradient(50%_50%_at_16.8%_18.3%,white,rgb(148,184,255)_37.7%,rgb(0,42,102))] shadow-[-20px_-20px_50px_rgb(255,255,255,0.5),-20px_-20px_80px_rgb(255,255,255,0.1),0_0_50px_rgb(59,130,246)]"
+            "absolute size-64 md:size-96 bg-blue-500 rounded-full border border-white/20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-[70%] bg-[radial-gradient(50%_50%_at_16.8%_18.3%,white,rgb(148,184,255)_37.7%,rgb(0,42,102))] shadow-[-20px_-20px_50px_rgb(255,255,255,0.2),-20px_-20px_80px_rgb(255,255,255,0.1),0_0_50px_rgb(59,130,246)]"
           }
         />
 
@@ -233,7 +234,9 @@ const Hero = () => {
             }
           >
             Transform Your Vision into <br />a{" "}
-            <Highlight className="text-zinc-300">Digital Masterpiece</Highlight>
+            <Highlight className="text-zinc-300 ">
+              Digital Masterpiece
+            </Highlight>
           </motion.h1>
           <motion.p
             variants={fadeInUp}
@@ -245,7 +248,7 @@ const Hero = () => {
             elevate brands in the digital landscape.
           </motion.p>
 
-          <motion.div
+          {/* <motion.div
             variants={fadeInUp}
             className={"flex gap-2 justify-center mt-6 md:mt-8"}
           >
@@ -271,6 +274,38 @@ const Hero = () => {
                 className="p-[3px] relative"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-800 rounded-lg" />
+                <div className="px-4 sm:px-8 py-2 bg-black rounded-[6px] relative group transition duration-200 text-white hover:bg-transparent text-sm sm:text-base">
+                  Contact Us
+                </div>
+              </motion.button>
+            </Link>
+          </motion.div> */}
+          <motion.div
+            variants={fadeInUp}
+            className="flex gap-2 justify-center mt-6 md:mt-8"
+          >
+            <Link href="#services">
+              <motion.button
+                variants={buttonAnimation}
+                whileHover="whileHover"
+                whileTap="whileTap"
+                className="p-[3px] relative"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-[#E69F5D] to-[#F4D4B5] rounded-lg" />
+                <div className="px-4 sm:px-8 py-2 bg-black rounded-[6px] relative group transition duration-200 text-white hover:bg-transparent text-sm sm:text-base">
+                  Our Services
+                </div>
+              </motion.button>
+            </Link>
+
+            <Link href="#contact">
+              <motion.button
+                variants={buttonAnimation}
+                whileHover="whileHover"
+                whileTap="whileTap"
+                className="p-[3px] relative"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-[#E69F5D] to-[#F4D4B5] rounded-lg" />
                 <div className="px-4 sm:px-8 py-2 bg-black rounded-[6px] relative group transition duration-200 text-white hover:bg-transparent text-sm sm:text-base">
                   Contact Us
                 </div>

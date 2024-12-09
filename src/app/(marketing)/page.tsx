@@ -47,7 +47,7 @@ const HomePage = () => {
   const secondRow = technologies.slice(technologies.length / 2);
 
   return (
-    <section className="w-full relative flex items-center justify-center flex-col px-4 md:px-0 ">
+    <section className="w-full relative flex items-center justify-center flex-col px-0 md:px-0 ">
       {/* hero */}
       <Hero />
 
@@ -58,8 +58,11 @@ const HomePage = () => {
       <Services />
 
       {/* testimonials */}
-      <Wrapper className="flex flex-col items-center justify-center py-8 relative">
-        <div className="hidden md:block absolute -top-1/4 -left-1/3 w-72 h-72 bg-indigo-500 rounded-full blur-[10rem] -z-10"></div>
+      <Wrapper
+        id="tech"
+        className="px-0 flex flex-col items-center justify-center py-8 md:px-4 relative"
+      >
+        <div className=" absolute -top-1/4 -left-1/3 w-72 h-72 bg-indigo-500 rounded-full blur-[10rem] -z-10"></div>
         <Container>
           <div className="max-w-md mx-auto text-center md:text-center">
             <SectionBadge title="Our Technologies" />

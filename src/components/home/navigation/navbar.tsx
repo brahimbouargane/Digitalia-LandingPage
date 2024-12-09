@@ -19,7 +19,7 @@ const Navbar = () => {
     () => [
       { label: "About", href: "#about" },
       { label: "Services", href: "#services" },
-      { label: "Contact", href: "#contact" },
+      { label: "Our Tech", href: "#tech" },
     ],
     []
   );
