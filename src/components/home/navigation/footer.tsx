@@ -25,14 +25,14 @@ const Footer = () => {
         </Link>
 
         {/* Description */}
-        <p className="text-muted-foreground text-sm max-w-[450px]">
+        <p className="text-muted-foreground text-lg max-w-[450px] uppercase">
           Transforming businesses through digital.
         </p>
       </div>
 
       {/* Copyright */}
       <div className="mt-4 border-t border-border/40 pt-4 md:pt-8 w-full text-center">
-        <p className="text-sm text-muted-foreground uppercase">
+        <p className="text-lg text-muted-foreground uppercase">
           &copy; {new Date().getFullYear()} DIGITALIA SOLUTIONS. All rights
           reserved.
         </p>
