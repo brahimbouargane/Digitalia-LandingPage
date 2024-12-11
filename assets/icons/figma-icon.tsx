@@ -1,7 +1,14 @@
 // components/icons/FigmaLogo.tsx
-const FigmaLogo = ({ className = "", ...props }) => {
+const FigmaLogo = ({ className = "", size = "16", ...props }) => {
   return (
-    <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 16 16"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      {...props}
+    >
       <path
         fill="#1ABCFE"
         d="M8.55 8c0-1.289 1.019-2.333 2.275-2.333C12.082 5.667 13.1 6.71 13.1 8c0 1.289-1.018 2.333-2.275 2.333C9.57 10.333 8.55 9.29 8.55 8z"

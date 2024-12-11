@@ -15,121 +15,70 @@ import Onoffice from "@/assets/photos/onoffice.png";
 import Vibe from "@/assets/photos/vibe.png";
 import Image from "next/image";
 
-// const partners = [
-//   {
-//     type: "icon",
-//     content: (
-//       <svg
-//         width="66"
-//         height="65"
-//         viewBox="0 0 66 65"
-//         fill="none"
-//         xmlns="http://www.w3.org/2000/svg"
-//         className="h-14 w-14 text-white"
-//       >
-//         <path
-//           d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
-//           stroke="currentColor"
-//           strokeWidth="15"
-//           strokeMiterlimit="3.86874"
-//           strokeLinecap="round"
-//         />
-//       </svg>
-//     ),
-//   },
-//   {
-//     type: "icon",
-//     content: (
-//       <svg
-//         width="66"
-//         height="65"
-//         viewBox="0 0 66 65"
-//         fill="none"
-//         xmlns="http://www.w3.org/2000/svg"
-//         className="h-14 w-14 text-white"
-//       >
-//         <path
-//           d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
-//           stroke="currentColor"
-//           strokeWidth="15"
-//           strokeMiterlimit="3.86874"
-//           strokeLinecap="round"
-//         />
-//       </svg>
-//     ),
-//   },
-//   {
-//     type: "text",
-//     title: "The greatest trick",
-//     description:
-//       "The greatest trick the devil ever pulled was to convince the world that he didn't exist.",
-//   },
-//   {
-//     type: "text",
-//     title: "The greatest trick",
-//     description:
-//       "The greatest trick the devil ever pulled was to convince the world that he didn't exist.",
-//   },
-//   {
-//     type: "text",
-//     title: "The greatest trick",
-//     description:
-//       "The greatest trick the devil ever pulled was to convince the world that he didn't exist.",
-//   },
-//   {
-//     type: "text",
-//     title: "The greatest trick",
-//     description:
-//       "The greatest trick the devil ever pulled was to convince the world that he didn't exist.",
-//   },
-//   {
-//     type: "text",
-//     title: "The greatest trick",
-//     description:
-//       "The greatest trick the devil ever pulled was to convince the world that he didn't exist.",
-//   },
-//   // Add more partners as needed
-// ];
 const partners = [
   {
     type: "logo",
     image: Vibe,
-    name: "Partner 1",
+    name: "Vibe",
+    title: "Vibe",
+    description:
+      "Our digital communications agency, Vibe, excels in creating innovative, customized digital strategies to maximize our customers' online visibility and impact.",
   },
   {
     type: "logo",
     image: Onoffice,
-    name: "Partner 2",
+    name: "On Office",
+    title: "On Office",
+    description:
+      "is our agency dedicated to the rental of professional office space, combining comfort and practicality to meet the needs of modern businesses.",
   },
   {
     type: "logo",
     image: NordSud,
-    name: "Partner 3",
+    name: "Nord Sud Agency",
+    title: "Nord Sud Agency",
+    description:
+      "a subsidiary of DIGITALIA GROUP, is an operational marketing and sales force agency. It helps companies achieve their sales objectives while strengthening their market presence.",
   },
   {
     type: "logo",
     image: CodingTech,
-    name: "Partner 4",
+    name: "Coding Tech",
+    title: "Coding Tech",
+    description:
+      "is our training school specializing in IT development, offering comprehensive courses in back-end and front-end development to train the experts of tomorrow.",
   },
   {
     type: "logo",
     image: Vibe,
-    name: "Partner 1",
+    name: "Vibe",
+    title: "Vibe",
+    description:
+      "Our digital communications agency, Vibe, excels in creating innovative, customized digital strategies to maximize our customers' online visibility and impact.",
   },
   {
     type: "logo",
     image: Onoffice,
-    name: "Partner 2",
+    name: "On Office",
+    title: "On Office",
+    description:
+      "is our agency dedicated to the rental of professional office space, combining comfort and practicality to meet the needs of modern businesses.",
   },
   {
     type: "logo",
     image: NordSud,
-    name: "Partner 3",
+    name: "Nord Sud Agency",
+    title: "Nord Sud Agency",
+    description:
+      "a subsidiary of DIGITALIA GROUP, is an operational marketing and sales force agency. It helps companies achieve their sales objectives while strengthening their market presence.",
   },
   {
     type: "logo",
     image: CodingTech,
-    name: "Partner 4",
+    name: "Coding Tech",
+    title: "Coding Tech",
+    description:
+      "is our training school specializing in IT development, offering comprehensive courses in back-end and front-end development to train the experts of tomorrow.",
   },
 ];
 
@@ -181,15 +130,6 @@ const Partners = () => {
           <div className="flex -ml-4">
             {partners.map((partner, index) => (
               <div key={index} className="flex-none pl-3">
-                {/* <GlareCard
-                  className={cn(
-                    "h-full transition-all duration-300  hover:scale-[1.02]",
-                    partner.type === "icon"
-                      ? "flex items-center justify-center p-8 sm:p-10"
-                      : "flex flex-col items-start justify-end p-6 sm:p-8",
-                    "backdrop-blur-sm bg-opacity-90"
-                  )}
-                > */}
                 <GlareCard
                   className={cn(
                     "group", // Add group class for hover functionality
@@ -198,28 +138,38 @@ const Partners = () => {
                       : "flex flex-col items-start justify-end p-6 sm:p-8"
                   )}
                 >
-                  {partner.type === "logo" ? (
-                    <div className="relative w-full h-full flex items-center justify-center p-8 brightness-0 invert ">
-                      <div className="relative w-full aspect-square">
-                        <Image
-                          src={partner.image}
-                          alt={partner.name}
-                          fill
-                          className="object-contain transition-all duration-300 "
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
+                  <div className="absolute inset-0 flex flex-col p-6">
+                    {partner.type === "logo" ? (
+                      <>
+                        <div className="relative flex-1 mb-4">
+                          <Image
+                            src={partner.image}
+                            alt={partner.name}
+                            fill
+                            className="object-contain transition-all duration-300 filter invert brightness-0 group-hover:scale-105"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          />
+                        </div>
+                        <div className="space-y-2 ">
+                          <h3 className="font-bold text-white text-xl group-hover:text-blue-400 transition-colors">
+                            {partner.title}
+                          </h3>
+                          <p className="text-neutral-300 text-sm line-clamp-8 group-hover:text-neutral-200">
+                            {partner.description}
+                          </p>
+                        </div>
+                      </>
+                    ) : (
+                      <div className="flex flex-col justify-end h-full space-y-2">
+                        <h3 className="font-bold text-white text-xl group-hover:text-blue-400 transition-colors">
+                          {partner.title}
+                        </h3>
+                        <p className="text-neutral-300 text-sm line-clamp-3 group-hover:text-neutral-200">
+                          {partner.description}
+                        </p>
                       </div>
-                    </div>
-                  ) : (
-                    <>
-                      {/* <h3 className="font-bold text-white text-xl sm:text-2xl">
-                        {partner?.title}
-                      </h3>
-                      <p className="font-normal text-neutral-200 mt-4 text-sm sm:text-base line-clamp-3">
-                        {partner.description}
-                      </p> */}
-                    </>
-                  )}
+                    )}
+                  </div>
                 </GlareCard>
               </div>
             ))}

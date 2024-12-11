@@ -84,7 +84,7 @@ const HomePage = () => {
                       }}
                     >
                       <Icon
-                        size={32}
+                        size="32"
                         className="text-slate-400 group-hover:text-[#61DAFB] transition-colors duration-300"
                         style={{ color: tech.color ? tech.color : "" }}
                       />
@@ -109,7 +109,7 @@ const HomePage = () => {
                       }}
                     >
                       <Icon
-                        size={32}
+                        size="32"
                         className="text-slate-400 group-hover:text-[#61DAFB] transition-colors duration-300"
                         style={{ color: tech.color }}
                       />
