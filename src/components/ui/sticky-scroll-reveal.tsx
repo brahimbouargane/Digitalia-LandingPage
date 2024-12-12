@@ -78,7 +78,7 @@ export const StickyScroll: React.FC<StickyScrollProps> = ({
   return (
     <motion.div
       ref={ref}
-      className="min-h-screen relative flex flex-col lg:flex-row justify-between gap-10  py-5 lg:px-10 lg:py-20  max-w-7xl mx-auto"
+      className="min-h-screen relative flex flex-col lg:flex-row justify-between gap-10  py-5 lg:px-10 lg:py-20 "
     >
       {/* Text Content */}
       <div className="relative flex items-start w-full lg:w-1/2 ">

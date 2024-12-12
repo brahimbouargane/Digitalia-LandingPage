@@ -6,109 +6,54 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Wrapper from "../global/wrapper";
 import Container from "../global/container";
 import { technologies } from "@/src/constants";
-import { useState, useEffect, memo, useRef } from "react";
+import { useState, useEffect, memo, useRef, useMemo } from "react";
 import { GoogleGeminiEffect } from "../ui/google-gemini-effect";
 import { TypewriterEffectSmooth } from "../ui/typewriter-effect";
 import { ActionButton } from "../ui/action-button";
 import BackgroundStars from "@/assets/photos/stars.png";
 import Link from "next/link";
 import { Highlight } from "../ui/hero-highlight";
+import cogImage from "@/assets/photos/cog.png";
+import wrap1 from "@/assets/photos/Wrap1.png";
+import wrap2 from "@/assets/photos/Wrap2.png";
+import wrap3 from "@/assets/photos/Wrap3.png";
+import wrap4 from "@/assets/photos/Wrap4.png";
 
-const fadeInUp = {
-  initial: {
-    y: 60,
-    opacity: 0,
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.3,
-      ease: "easeOut",
-    },
-  },
-};
+import cylinderImage from "@/assets/photos/cylinder.png";
+import noodleImage from "@/assets/photos/noodle.png";
+import { WorldMap } from "../ui/world-map";
+import dynamic from "next/dynamic";
 
-const staggerContainer = {
-  animate: {
-    transition: {
-      staggerChildren: 0.2,
-    },
+const floatingImages = [
+  {
+    src: wrap1,
+    alt: "Floating icon 1",
+    className: "w-32 h-32 brightness-110 hue-rotate-30 hidden lg:block",
+    position: "right-[20%] top-20", // top right
   },
-};
+  {
+    src: wrap2,
+    alt: "Floating icon 2",
+    className: "w-32 h-32 brightness-110 hue-rotate-30 hidden lg:block",
+    position: "left-[20%] bottom-[60%]", // bottom left
+  },
+  {
+    src: wrap3,
+    alt: "Floating icon 3",
+    className: "w-32 h-32 brightness-110 hue-rotate-30 hidden lg:block ",
+    position: "left-[20%] top-20", // top left
+  },
+  {
+    src: wrap4,
+    alt: "Floating icon 4",
+    className: "w-32 h-32 brightness-110 hue-rotate-30 hidden lg:block",
+    position: "right-[20%] bottom-[60%]", // another bottom left, slightly offset
+  },
+];
 
-const buttonAnimation = {
-  initial: { scale: 0.9, opacity: 0 },
-  animate: {
-    scale: 1,
-    opacity: 1,
-    transition: {
-      duration: 0.2,
-      ease: "easeOut",
-    },
-  },
-  whileHover: {
-    scale: 1.05,
-    transition: {
-      duration: 0.1,
-    },
-  },
-  whileTap: { scale: 0.95 },
-};
-const planetAnimation = {
-  initial: {
-    y: 0,
-    x: -180,
-    opacity: 0,
-  },
-  animate: {
-    y: -280,
-    x: -180,
-    opacity: 1,
-    transition: {
-      duration: 1,
-      delay: 0.3,
-    },
-  },
-};
-const ringAnimation = {
-  initial: { opacity: 0 },
-  animate: {
-    opacity: 0.2,
-    transition: {
-      duration: 0.4,
-      delay: 0.3,
-    },
-  },
-};
-const WelcomeButton = memo(() => (
-  <button className="group relative grid overflow-hidden rounded-full px-3 sm:px-4 py-0.5 sm:py-1 shadow-[0_1000px_0_0_hsl(0_0%_20%)_inset] transition-colors duration-100">
-    <span>
-      <span className="spark mask-gradient absolute inset-0 h-[100%] w-[100%] animate-flip overflow-hidden rounded-full [mask:linear-gradient(white,_transparent_50%)] before:absolute before:aspect-square before:w-[200%] before:rotate-[-90deg] before:animate-rotate before:bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] before:content-[''] before:[inset:0_auto_auto_50%] before:[translate:-50%_-15%]" />
-    </span>
-    <span className="backdrop absolute inset-[1px] rounded-full bg-neutral-950 transition-colors duration-100 group-hover:bg-neutral-900" />
-    <span className="h-full w-full blur-md absolute bottom-0 inset-x-0 bg-gradient-to-tr from-primary/40"></span>
-    <span className="z-10 py-0.5 text-sm text-neutral-100 flex items-center justify-center gap-1.5">
-      <Image
-        src="/icons/sparkles-dark.svg"
-        alt="✨"
-        width={24}
-        height={24}
-        className="w-4 h-4"
-        priority={false}
-      />
-      Welcome To Your Best Choice
-      <ChevronRight className="w-4 h-4" />
-    </span>
-  </button>
-));
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(true);
   const { scrollY } = useScroll();
-
-  // Parallax effect for background
-  const backgroundY = useTransform(scrollY, [0, 500], [0, 150]);
-  const opacity = useTransform(scrollY, [0, 200], [1, 0]);
 
   // Handle scroll visibility
   useEffect(() => {
@@ -121,13 +66,6 @@ const Hero = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const words = [
-    "Digital Masterpiece",
-    "Virtual Horizon",
-    "Online Revolution",
-    "Digital Reality",
-  ];
-
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -138,177 +76,174 @@ const Hero = () => {
     [0, 1],
     [-300, 300]
   );
+  const dots = useMemo(
+    () => [
+      {
+        start: { lat: 33.5731, lng: -7.5898 }, // Casablanca (HQ)
+        end: { lat: 44.8566, lng: 0.8522 }, // london
+      },
+      {
+        start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
+        end: { lat: 27.5074, lng: -0.1278 }, // paris
+      },
+      {
+        start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
+        end: { lat: 41.3851, lng: 2.1734 }, // Barcelona
+      },
+      {
+        start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
+        end: { lat: 30.7128, lng: -74.006 }, // New York
+      },
+      {
+        start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
+        end: { lat: 45.5017, lng: -73.5673 }, // Montreal
+      },
+      {
+        start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
+        end: { lat: 42.52, lng: 9.405 }, // Berlin
+      },
+    ],
+    []
+  );
 
   return (
     <div className="!w-screen" id="home">
       <motion.section
         animate={{ backgroundPositionX: BackgroundStars.width }}
         transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-        className={
-          "h-[492px]  md:h-[800px]  flex items-center  overflow-hidden relative [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]"
-        }
+        className="min-h-[492px] md:min-h-[800px] relative overflow-hidden"
         style={{
           backgroundImage: `url(${BackgroundStars.src})`,
           backgroundPositionY,
         }}
         ref={sectionRef}
       >
-        <div className={"absolute inset-0 "} />
-        {/* Planet Logic */}
-        <div
-          className={
-            "absolute size-64 md:size-96 bg-blue-500 rounded-full border border-white/20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-[70%] bg-[radial-gradient(50%_50%_at_16.8%_18.3%,rgba(255,255,255,0.7),rgb(148,184,255,0.6)_37.7%,rgb(0,42,102))] shadow-[-10px_-10px_25px_rgb(255,255,255,0.1),-10px_-10px_40px_rgb(255,255,255,0.05),0_0_25px_rgb(59,130,246,0.5)]"
-          }
-        />
-
-        {/* Rings + Mini planets Logic */}
-        <motion.div
-          style={{ translateY: "-60%", translateX: "-50%" }}
-          animate={{ rotate: "1turn" }}
-          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-          className={
-            "absolute size-[344px] md:size-[580px] border border-white opacity-20 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-          }
-        >
-          <div
-            className={
-              "absolute size-2 bg-white rounded-full top-1/ left-0 -translate-x-1/2 -translate-y-1/2"
-            }
-          />
-          <div
-            className={
-              "absolute size-2 bg-white rounded-full top-0 left-1/2 -translate-x-1/2 -translate-y-1/2"
-            }
-          />
-          <div
-            className={
-              "absolute size-5 border border-white rounded-full top-1/2 left-full -translate-x-1/2 -translate-y-1/2 inline-flex items-center justify-center"
-            }
-          >
-            <div className={"size-2 bg-white rounded-full"} />
-          </div>
-        </motion.div>
-        <motion.div
-          style={{ translateY: "-60%", translateX: "-50%" }}
-          animate={{ rotate: "-1turn" }}
-          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-          className={
-            "absolute size-[444px] md:size-[780px] rounded-full border border-white/20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-dashed"
-          }
-        />
-        <motion.div
-          style={{ translateY: "-60%", translateX: "-50%" }}
-          animate={{ rotate: "1turn" }}
-          transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
-          className={
-            "absolute size-[544px] md:size-[980px] rounded-full border border-white opacity-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-          }
-        >
-          <div
-            className={
-              "absolute size-2 bg-white rounded-full top-1/2 left-0 -translate-x-1/2 -translate-y-1/2"
-            }
-          />
-          <div
-            className={
-              "absolute size-2 bg-white rounded-full top-1/2 left-full -translate-x-1/2 -translate-y-1/2"
-            }
-          />
-        </motion.div>
-        {/* Hero Section Content Logic */}
-        {/* <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          animate="animate"
-          className={"container relative mb-0 lg:mb-28 px-4 md:px-0"}
-        >
-          <motion.h1
-            variants={fadeInUp}
-            className={
-              "text-3xl sm:text-4xl md:text-[80px] md:leading-tight font-semibold bg-white tracking-tighter leading-tight bg-[radial-gradient(100%_100%_at_top_left,white,white,rgb(32,99,138,0.5))] bg-clip-text text-transparent text-center"
-            }
-          >
-            Transform Your Vision into <br />a{" "}
-            <Highlight className="text-zinc-300 ">
-              Digital Masterpiece
-            </Highlight>
-          </motion.h1>
-          <motion.p
-            variants={fadeInUp}
-            className={
-              "text-base sm:text-lg md:text-xl max-w-xl mx-auto text-white/70 mt-4 md:mt-5 text-center px-4 sm:px-0"
-            }
-          >
-            We craft digital experiences that drive growth, engage users, and
-            elevate brands in the digital landscape.
-          </motion.p>
-
+        <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]" />
+        {floatingImages.map((img, index) => (
           <motion.div
-            variants={fadeInUp}
-            className="flex gap-2 justify-center mt-6 md:mt-8"
+            key={index}
+            className={`absolute ${img.className} ${img.position}`}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              x: [-10, 10, -10],
+              rotate: [-5, 5, -5],
+            }}
+            transition={{
+              duration: 4,
+              delay: index * 0.3,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut",
+            }}
           >
-            <Link href="#services">
-              <motion.button
-                variants={buttonAnimation}
-                whileHover="whileHover"
-                whileTap="whileTap"
-                className="p-[3px] relative"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#E69F5D] to-[#F4D4B5] rounded-lg" />
-                <div className="px-4 sm:px-8 py-2 bg-black rounded-[6px] relative group transition duration-200 text-white hover:bg-transparent text-sm sm:text-base">
-                  Our Services
-                </div>
-              </motion.button>
-            </Link>
-
-            <Link href="#contact">
-              <motion.button
-                variants={buttonAnimation}
-                whileHover="whileHover"
-                whileTap="whileTap"
-                className="p-[3px] relative"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-[#E69F5D] to-[#F4D4B5] rounded-lg" />
-                <div className="px-4 sm:px-8 py-2 bg-black rounded-[6px] relative group transition duration-200 text-white hover:bg-transparent text-sm sm:text-base">
-                  Contact Us
-                </div>
-              </motion.button>
-            </Link>
+            <Image
+              src={img.src}
+              alt={img.alt}
+              width={80}
+              height={80}
+              className="w-full h-full object-contain"
+            />
           </motion.div>
-        </motion.div> */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="container relative mb-0 lg:mb-28 px-4 md:px-0"
-        >
-          <h1 className="text-3xl sm:text-4xl md:text-[80px] md:leading-tight font-semibold tracking-tighter leading-tight bg-gradient-to-br from-white via-white to-blue-400/50 bg-clip-text text-transparent text-center">
-            Transform Your Vision into <br />
-            <Highlight className="text-zinc-300">Digital Masterpiece</Highlight>
-          </h1>
+        ))}
+        <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
+          {/* Content Container */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-center max-w-6xl mx-auto space-y-8 md:space-y-12"
+          >
+            {/* Heading */}
+            <h1 className="text-2xl sm:text-3xl md:text-[70px] md:leading-tight font-semibold tracking-tighter leading-tight bg-gradient-to-br  from-neutral-600 to-white bg-clip-text text-transparent text-center max-w-5xl">
+              Transform Your Vision into <br />
+              Digital Masterpiece
+            </h1>
 
-          <p className="text-base sm:text-lg md:text-xl max-w-xl mx-auto text-white/70 mt-4 md:mt-5 text-center px-4 sm:px-0">
-            We craft digital experiences that drive growth, engage users, and
-            elevate brands in the digital landscape.
-          </p>
+            {/* Description */}
+            <p className="text-xs sm:text-lg md:text-lg max-w-xl text-white/70 text-center">
+              We craft digital experiences that drive growth, engage users, and
+              elevate brands in the digital landscape.
+            </p>
 
-          <div className="flex gap-2 justify-center mt-6 md:mt-8">
-            {["Our Services", "Contact Us"].map((text, index) => (
-              <Link key={text} href={index === 0 ? "#services" : "#contact"}>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="p-[3px] relative"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#E69F5D] to-[#F4D4B5] rounded-lg" />
-                  <div className="px-4 sm:px-8 py-2 bg-black rounded-[6px] relative group transition duration-200 text-white hover:bg-transparent text-sm sm:text-base">
-                    {text}
-                  </div>
-                </motion.button>
-              </Link>
-            ))}
-          </div>
-        </motion.div>
+            <div className="flex gap-4 justify-center mt-6 md:mt-8">
+              {[
+                {
+                  text: "Our Services",
+                  color: "blue",
+                  href: "#services",
+                  hoverBg: "hover:bg-blue-500/10",
+                },
+                {
+                  text: "Contact Us",
+                  color: "emerald",
+                  href: "#contact",
+                  hoverBg: "hover:bg-orange-500/10",
+                },
+              ].map(({ text, color, href, hoverBg }) => (
+                <Link key={text} href={href}>
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-sm md:text-base font-semibold leading-6 text-white inline-block"
+                  >
+                    <span className="absolute inset-0 overflow-hidden rounded-full">
+                      <span
+                        className={`absolute inset-0 rounded-full ${
+                          color === "blue"
+                            ? "bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)]"
+                            : "bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(222, 157, 86,0.6)_0%,rgba(16,185,129,0)_75%)]"
+                        } opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
+                      ></span>
+                    </span>
+                    <div
+                      className={`relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-2 px-6 ring-1 ring-white/10 transition-colors duration-300 ${hoverBg} group-hover:ring-white/20`}
+                    >
+                      <span>{text}</span>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="transform transition-transform duration-300 group-hover:translate-x-0.5"
+                      >
+                        <path
+                          stroke="currentColor"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="1.5"
+                          d="M10.75 8.75L14.25 12L10.75 15.25"
+                        ></path>
+                      </svg>
+                    </div>
+                    <span
+                      className={`absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] ${
+                        color === "blue"
+                          ? "bg-gradient-to-r from-blue-400/0 via-blue-400/90 to-blue-400/0"
+                          : "bg-gradient-to-r from-orange-400/0 via-orange-400/90 to-orange-400/0 "
+                      } transition-opacity duration-500 group-hover:opacity-40`}
+                    ></span>
+                  </motion.button>
+                </Link>
+              ))}
+            </div>
+            {/* World Map Container */}
+            <div className="w-full max-w-5xl mt-12 md:mt-16">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.2 }}
+              >
+                <WorldMap
+                  dots={dots}
+                  className="w-full h-[400px] md:h-[500px]"
+                />
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
       </motion.section>
     </div>
   );
