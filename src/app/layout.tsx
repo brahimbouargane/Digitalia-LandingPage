@@ -3,6 +3,7 @@ import { cn } from "@/src/lib/utils";
 import "@/src/styles/globals.css";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "../contexts/ThemeContext";
+import { DigitalAgencyLoading } from "../components/global/digital-agency-loading";
 
 const font = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,7 @@ export default function RootLayout({
           font.className
         )}
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider> 
       </body>
     </html>
   );

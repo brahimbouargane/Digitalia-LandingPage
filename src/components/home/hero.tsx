@@ -79,7 +79,7 @@ const Hero = () => {
   const dots = useMemo(
     () => [
       {
-        start: { lat: 33.5731, lng: -7.5898 }, // Casablanca (HQ)
+        start: { lat: 16.189886, lng: -8.603869 }, // Casablanca (HQ)
         end: { lat: 44.8566, lng: 0.8522 }, // london
       },
       {
@@ -106,12 +106,153 @@ const Hero = () => {
     []
   );
 
+  // return (
+  //   <div className="!w-screen" id="home">
+  //     <motion.section
+  //       animate={{ backgroundPositionX: BackgroundStars.width }}
+  //       transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
+  //       className="min-h-[492px] md:min-h-[800px] relative overflow-hidden"
+  //       style={{
+  //         backgroundImage: `url(${BackgroundStars.src})`,
+  //         backgroundPositionY,
+  //       }}
+  //       ref={sectionRef}
+  //     >
+  //       <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]" />
+  //       {floatingImages.map((img, index) => (
+  //         <motion.div
+  //           key={index}
+  //           className={`absolute ${img.className} ${img.position}`}
+  //           initial={{ opacity: 0, y: 50 }}
+  //           animate={{
+  //             opacity: 1,
+  //             y: 0,
+  //             x: [-10, 10, -10],
+  //             rotate: [-5, 5, -5],
+  //           }}
+  //           transition={{
+  //             duration: 4,
+  //             delay: index * 0.3,
+  //             repeat: Infinity,
+  //             repeatType: "reverse",
+  //             ease: "easeInOut",
+  //           }}
+  //         >
+  //           <Image
+  //             src={img.src}
+  //             alt={img.alt}
+  //             width={80}
+  //             height={80}
+  //             className="w-full h-full object-contain"
+  //           />
+  //         </motion.div>
+  //       ))}
+  //       <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
+  //         {/* Content Container */}
+  //         <motion.div
+  //           initial={{ opacity: 0, y: 20 }}
+  //           animate={{ opacity: 1, y: 0 }}
+  //           transition={{ duration: 0.8 }}
+  //           className="flex flex-col items-center max-w-6xl mx-auto space-y-8 md:space-y-12"
+  //         >
+  //           {/* Heading */}
+  //           <h1 className="text-2xl sm:text-3xl md:text-[70px] md:leading-tight font-semibold tracking-tighter leading-tight bg-gradient-to-br  from-neutral-600 to-white bg-clip-text text-transparent text-center max-w-5xl">
+  //             Transform Your Vision into <br />
+  //             Digital Masterpiece
+  //           </h1>
+
+  //           {/* Description */}
+  //           <p className="text-xs sm:text-lg md:text-lg max-w-xl text-white/70 text-center">
+  //             We craft digital experiences that drive growth, engage users, and
+  //             elevate brands in the digital landscape.
+  //           </p>
+
+  //           <div className="flex gap-4 justify-center mt-6 md:mt-8">
+  //             {[
+  //               {
+  //                 text: "Our Services",
+  //                 color: "blue",
+  //                 href: "#services",
+  //                 hoverBg: "hover:bg-blue-500/10",
+  //               },
+  //               {
+  //                 text: "Contact Us",
+  //                 color: "emerald",
+  //                 href: "#contact",
+  //                 hoverBg: "hover:bg-orange-500/10",
+  //               },
+  //             ].map(({ text, color, href, hoverBg }) => (
+  //               <Link key={text} href={href}>
+  //                 <motion.button
+  //                   whileHover={{ scale: 1.02 }}
+  //                   whileTap={{ scale: 0.98 }}
+  //                   className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-sm md:text-base font-semibold leading-6 text-white inline-block"
+  //                 >
+  //                   <span className="absolute inset-0 overflow-hidden rounded-full">
+  //                     <span
+  //                       className={`absolute inset-0 rounded-full ${
+  //                         color === "blue"
+  //                           ? "bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)]"
+  //                           : "bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(222, 157, 86,0.6)_0%,rgba(16,185,129,0)_75%)]"
+  //                       } opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
+  //                     ></span>
+  //                   </span>
+  //                   <div
+  //                     className={`relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-2 px-6 ring-1 ring-white/10 transition-colors duration-300 ${hoverBg} group-hover:ring-white/20`}
+  //                   >
+  //                     <span>{text}</span>
+  //                     <svg
+  //                       width="16"
+  //                       height="16"
+  //                       viewBox="0 0 24 24"
+  //                       fill="none"
+  //                       xmlns="http://www.w3.org/2000/svg"
+  //                       className="transform transition-transform duration-300 group-hover:translate-x-0.5"
+  //                     >
+  //                       <path
+  //                         stroke="currentColor"
+  //                         strokeLinecap="round"
+  //                         strokeLinejoin="round"
+  //                         strokeWidth="1.5"
+  //                         d="M10.75 8.75L14.25 12L10.75 15.25"
+  //                       ></path>
+  //                     </svg>
+  //                   </div>
+  //                   <span
+  //                     className={`absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] ${
+  //                       color === "blue"
+  //                         ? "bg-gradient-to-r from-blue-400/0 via-blue-400/90 to-blue-400/0"
+  //                         : "bg-gradient-to-r from-orange-400/0 via-orange-400/90 to-orange-400/0 "
+  //                     } transition-opacity duration-500 group-hover:opacity-40`}
+  //                   ></span>
+  //                 </motion.button>
+  //               </Link>
+  //             ))}
+  //           </div>
+  //           {/* World Map Container */}
+  //           <div className="w-full max-w-5xl mt-12 md:mt-16">
+  //             <motion.div
+  //               initial={{ opacity: 0, scale: 0.95 }}
+  //               animate={{ opacity: 1, scale: 1 }}
+  //               transition={{ duration: 1, delay: 0.2 }}
+  //             >
+  //               <WorldMap
+  //                 dots={dots}
+  //                 className="w-full h-[400px] md:h-[500px]"
+  //               />
+  //             </motion.div>
+  //           </div>
+  //         </motion.div>
+  //       </div>
+  //     </motion.section>
+  //   </div>
+  // );
   return (
     <div className="!w-screen" id="home">
       <motion.section
         animate={{ backgroundPositionX: BackgroundStars.width }}
         transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-        className="min-h-[492px] md:min-h-[800px] relative overflow-hidden"
+        className="min-h-[70vh] relative overflow-hidden"
         style={{
           backgroundImage: `url(${BackgroundStars.src})`,
           backgroundPositionY,
@@ -119,130 +260,104 @@ const Hero = () => {
         ref={sectionRef}
       >
         <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]" />
-        {floatingImages.map((img, index) => (
-          <motion.div
-            key={index}
-            className={`absolute ${img.className} ${img.position}`}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              x: [-10, 10, -10],
-              rotate: [-5, 5, -5],
-            }}
-            transition={{
-              duration: 4,
-              delay: index * 0.3,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut",
-            }}
-          >
-            <Image
-              src={img.src}
-              alt={img.alt}
-              width={80}
-              height={80}
-              className="w-full h-full object-contain"
-            />
-          </motion.div>
-        ))}
-        <div className="container mx-auto px-4 py-16 md:py-24 relative z-10">
-          {/* Content Container */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="flex flex-col items-center max-w-6xl mx-auto space-y-8 md:space-y-12"
-          >
-            {/* Heading */}
-            <h1 className="text-2xl sm:text-3xl md:text-[70px] md:leading-tight font-semibold tracking-tighter leading-tight bg-gradient-to-br  from-neutral-600 to-white bg-clip-text text-transparent text-center max-w-5xl">
-              Transform Your Vision into <br />
-              Digital Masterpiece
-            </h1>
 
-            {/* Description */}
-            <p className="text-xs sm:text-lg md:text-lg max-w-xl text-white/70 text-center">
-              We craft digital experiences that drive growth, engage users, and
-              elevate brands in the digital landscape.
-            </p>
+        <div className="h-full relative z-10">
+          <Wrapper className="grid h-full grid-cols-1 lg:grid-cols-2 items-center mx-auto">
+            {/* Left Column - Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="flex flex-col space-y-6 md:space-y-8 px-4 lg:px-0 lg:pr-12 pt-16 lg:pt-0"
+            >
+              {/* Heading */}
+              {/* <h1 className="text-3xl sm:text-4xl md:text-[70px] font-semibold tracking-tighter leading-tight bg-gradient-to-br from-neutral-600 to-white bg-clip-text text-transparent">
+                Transform Your Vision into Digital Masterpiece
+              </h1> */}
+              <h1 className="text-3xl sm:text-3xl md:text-[65px] md:leading-tight font-semibold tracking-tighter leading-tight bg-gradient-to-br  from-neutral-600 to-white bg-clip-text text-transparent  max-w-5xl">
+                Transform Your Vision into Digital Masterpiece
+              </h1>
 
-            <div className="flex gap-4 justify-center mt-6 md:mt-8">
-              {[
-                {
-                  text: "Our Services",
-                  color: "blue",
-                  href: "#services",
-                  hoverBg: "hover:bg-blue-500/10",
-                },
-                {
-                  text: "Contact Us",
-                  color: "emerald",
-                  href: "#contact",
-                  hoverBg: "hover:bg-orange-500/10",
-                },
-              ].map(({ text, color, href, hoverBg }) => (
-                <Link key={text} href={href}>
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-sm md:text-base font-semibold leading-6 text-white inline-block"
-                  >
-                    <span className="absolute inset-0 overflow-hidden rounded-full">
-                      <span
-                        className={`absolute inset-0 rounded-full ${
-                          color === "blue"
-                            ? "bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)]"
-                            : "bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(222, 157, 86,0.6)_0%,rgba(16,185,129,0)_75%)]"
-                        } opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
-                      ></span>
-                    </span>
-                    <div
-                      className={`relative flex space-x-2 items-center z-10 rounded-full bg-zinc-950 py-2 px-6 ring-1 ring-white/10 transition-colors duration-300 ${hoverBg} group-hover:ring-white/20`}
+              {/* Description */}
+              <p className="text-sm md:text-lg max-w-xl text-white/70">
+                We craft digital experiences that drive growth, engage users,
+                and elevate brands in the digital landscape.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-4">
+                {[
+                  {
+                    text: "Our Services",
+                    color: "blue",
+                    href: "#services",
+                    hoverBg: "hover:bg-blue-500/10",
+                  },
+                  {
+                    text: "Contact Us",
+                    color: "emerald",
+                    href: "#contact",
+                    hoverBg: "hover:bg-orange-500/10",
+                  },
+                ].map(({ text, color, href, hoverBg }) => (
+                  <Link key={text} href={href} className="w-full sm:w-auto">
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="w-full sm:w-auto bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-sm sm:text-base font-semibold leading-6 text-white inline-block"
                     >
-                      <span>{text}</span>
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="transform transition-transform duration-300 group-hover:translate-x-0.5"
+                      <span className="absolute inset-0 overflow-hidden rounded-full">
+                        <span
+                          className={`absolute inset-0 rounded-full ${
+                            color === "blue"
+                              ? "bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)]"
+                              : "bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(222,157,86,0.6)_0%,rgba(16,185,129,0)_75%)]"
+                          } opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
+                        ></span>
+                      </span>
+                      <div
+                        className={`relative flex justify-center space-x-2 items-center z-10 rounded-full bg-zinc-950 py-2.5 px-6 ring-1 ring-white/10 transition-colors duration-300 ${hoverBg} group-hover:ring-white/20`}
                       >
-                        <path
-                          stroke="currentColor"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="1.5"
-                          d="M10.75 8.75L14.25 12L10.75 15.25"
-                        ></path>
-                      </svg>
-                    </div>
-                    <span
-                      className={`absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] ${
-                        color === "blue"
-                          ? "bg-gradient-to-r from-blue-400/0 via-blue-400/90 to-blue-400/0"
-                          : "bg-gradient-to-r from-orange-400/0 via-orange-400/90 to-orange-400/0 "
-                      } transition-opacity duration-500 group-hover:opacity-40`}
-                    ></span>
-                  </motion.button>
-                </Link>
-              ))}
-            </div>
-            {/* World Map Container */}
-            <div className="w-full max-w-5xl mt-12 md:mt-16">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1, delay: 0.2 }}
-              >
-                <WorldMap
-                  dots={dots}
-                  className="w-full h-[400px] md:h-[500px]"
-                />
-              </motion.div>
-            </div>
-          </motion.div>
+                        <span>{text}</span>
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="transform transition-transform duration-300 group-hover:translate-x-0.5"
+                        >
+                          <path
+                            stroke="currentColor"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="1.5"
+                            d="M10.75 8.75L14.25 12L10.75 15.25"
+                          ></path>
+                        </svg>
+                      </div>
+                      <span
+                        className={`absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] ${
+                          color === "blue"
+                            ? "bg-gradient-to-r from-blue-400/0 via-blue-400/90 to-blue-400/0"
+                            : "bg-gradient-to-r from-orange-400/0 via-orange-400/90 to-orange-400/0"
+                        } transition-opacity duration-500 group-hover:opacity-40`}
+                      ></span>
+                    </motion.button>
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Right Column - World Map */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="w-full lg:w-[1200px] h-[400px] sm:h-[500px] md:h-screen mt-8 md:-mt-24 md:-mb-24"
+            >
+              <WorldMap dots={dots} className="w-full h-full" />
+            </motion.div>
+          </Wrapper>
         </div>
       </motion.section>
     </div>
