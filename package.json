@@ -2,16 +2,16 @@
   "name": "digitalia",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "18.17.1",
+    "pnpm": "8.15.1"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit"
-  },
-  "engines": {
-    "node": "18.x",
-    "pnpm": "8.x"
   },
   "dependencies": {
     "@clerk/nextjs": "^5.2.3",
